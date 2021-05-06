@@ -1,0 +1,15 @@
+{
+    "name": "social-network/social-network",
+    "authors": [
+        {
+            "name": "William²",
+            "email": "william.kies@laplateforme.io"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.3",
+        "twig/twig": "^3.3",
+        "slim/twig-view": "^3.2"
+    }
+}

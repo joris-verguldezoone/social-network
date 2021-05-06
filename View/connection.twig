@@ -1,0 +1,21 @@
+{% extends 'template.twig' %}
+
+{% block content %}
+
+<section>
+    <form method='POST' action="{{ BASE_PATH }}/connection">
+        <div>
+            <label for='logLogin'>Login
+                <input type='text' name='logLogin' id='logLogin'>
+            </label>
+        </div>
+        <div>
+            <label for='logPassword'>Mot de passe
+                <input type='password' name='logPassword' id='logPassword'>
+            </label>
+        </div>
+        <input type='submit' name='submitConnection' id='submitConnection' value="Se Connecter">
+    </form>
+</section>
+
+{% endblock %}
