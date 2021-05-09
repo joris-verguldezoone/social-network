@@ -4,7 +4,7 @@ namespace App\Model;
 
 abstract class Model
 {
-    protected \PDO $pdo;
+    protected $pdo;
 
     public function __construct()
     {

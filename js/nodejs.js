@@ -4,8 +4,29 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
+var cookieParser = require('cookie-parser')
 
-app.get('/', (req, res) => {
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: ""
+});
+
+con.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected! at social-network");
+});
+
+function inscription()
+
+
+
+
+
+
+app.get('/inscription', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
@@ -30,18 +51,10 @@ io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
 
         console.log('message: ' + msg);
-
-        //
-
         socket.broadcast.to(user_connected_list.toid).emit('sendMsg', { msg: data.msg, name: data.name });
     });
 });
-//
-// io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); // This will emit the event to all connected sockets
 
-// io.on('connection', (socket) => {
-//     socket.broadcast.emit('hi');
-// });
 
 io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
@@ -49,5 +62,15 @@ io.on('connection', (socket) => {
     }); // emit on console
 });
 
-// socket.broadcast.to('feDpMG7RgYpI8QwxAAAB').emit('send msg', { 'bjr fdp': somedata_server });
 
+
+/*
+instancier des tokens dans les cookies
+instancier des signatures dans les cookies
+recuperer le dom des cookies,
+faire les verification avec les decode des différents champs des cookies
+
+creer des doonées de navigation avec les data des user + des sockets
+
+
+*/
