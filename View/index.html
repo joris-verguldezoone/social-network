@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>croquette.IO chat</title>
+  </head>
+  <body style="height:95vh; background-color: whitesmoke;">
+    <header style="width:100%; height:10vh; background-color: teal;">
+
+    </header>
+    <main style="height:80%;">
+    <ul id="messages"></ul>
+    <ul id="user_logged" style="background-color: beige;"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+<script  src="node_modules/socket.io/client-dist/socket.io.js"></script>
+<h1>cc</h1>
+<!-- <script type="text/javascript" src="node_modules/socket.io/client-dist/socket.io.js"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script>
+      var socket = io('http://127.0.0.1:3800');
+    
+      var messages = document.getElementById('messages');
+      var form = document.getElementById('form');
+      var input = document.getElementById('input');
+      var user_logged = document.getElementById('user_logged')
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit('chat message', input.value);
+          socket.emit('connect_user', user_logged.value)
+          input.value = '';
+        }
+      });
+    
+      socket.on('chat message', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+
+      socket.on('connect_user', function(data){
+        console.log('monvier');
+        var user = document.createElement('li');
+        user.textContent = data;
+        user_logged.appendChild(user)
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+
+
+
+
+    </script> 
+    </main>
+    <footer style="width:100%; height:10vh; background-color: teal;">
+
+    </footer>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-{% extends 'template.twig' %}
+{% extends 'template.twig.html' %}
 
 {% block content %}
 
@@ -24,9 +24,9 @@
                 <input type='password' name='confirmCreatePassword' id='confirmCreatePassword'>
             </label>
         </div>
+            <script type="text/javascript" src="{{BASE_PATH}}/js/script.js"></script>
         <input type='submit' name='submitInscription' id='submitInscription' value="S'inscrire">
     </form>
 </section>
-
 {% endblock %}
 
