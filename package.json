@@ -1,0 +1,19 @@
+{
+  "name": "social-network",
+  "version": "1.0.0",
+  "description": "Social-network project",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch css/mainstyle.scss:css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joris-verguldezoone/social-network.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joris-verguldezoone/social-network/issues"
+  },
+  "homepage": "https://github.com/joris-verguldezoone/social-network#readme"
+}
