@@ -13,12 +13,16 @@ spl_autoload_register(function ($className)
     $filePath =  str_replace('\\', '/', $className) . '.php'; // Peut etre remplacer le .php en .twig ???
     if (file_exists($filePath)) { require($filePath); }
 });
-
 $app = AppFactory::create();
+
 
 define('BASE_PATH', rtrim(dirname($_SERVER["SCRIPT_NAME"]), '/'));
 define('HTTP_HOST', $_SERVER["HTTP_HOST"]);
 $app->setBasePath(BASE_PATH);
+echo __DIR__;
+var_dump(BASE_PATH);
+var_dump($_SERVER["SCRIPT_NAME"]);
+var_dump($_SERVER["HTTP_HOST"]);
 
 $app -> addRoutingMiddleware();
 
