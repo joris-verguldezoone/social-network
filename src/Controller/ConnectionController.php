@@ -36,7 +36,10 @@ class ConnectionController extends Controller
                     $_SESSION['connected'] = true;
                     $user = $connectionModel -> selectAll('user_log', 'login', $login);
                     $_SESSION['user'] = $user;
-
+                    setcookie("connexionCookie", json_encode($user));
+                        var_dump($_COOKIE['connexionCookie']);
+                    $data = json_decode($_COOKIE['connexionCookie'], true);
+                    var_dump($data);
                     //$this -> redirect('profil');
                     echo ('bravo ! t\'es connecté !'); // a supprimer et enlever les comments de la ligne au dessus
                 } else {
