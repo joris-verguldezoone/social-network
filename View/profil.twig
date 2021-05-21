@@ -1,42 +1,21 @@
 {% extends 'template.twig' %}
 
+{% block style %}
+{{ parent() }}
+{% endblock %}
+
 {% block content %}
 
 <h1>Gestion du profil</h1>
 
 <form method='POST' action="{{ BASE_PATH }}/profil" enctype="multipart/form-data">
-
     <div>
         <label for="file"> photo
             <input type="file" name="file">
         </label>
     </div>
 
-    <div>
-        <label for='profilLogin'>Login
-            <input type='text' name='profilLogin' id='profilLogin' value='{{ session.user.login }}'>
-        </label>
-    </div>
-    <div>
-        <label for='profilEmail'>Email
-            <input type='text' name='profilEmail' id='profilEmail' value='{{ session.user.email }}'>
-        </label>
-    </div>
-    <div>
-        <label for='profilPassword'>Mot de passe
-            <input type='password' name='profilPassword' id='profilPassword'>
-        </label>
-    </div>
-    <div>
-        <label for='confirmProfilPassword'>Confirmer le mot de passe
-            <input type='password' name='confirmProfilPassword' id='confirmProfilPassword'>
-        </label>
-    </div>
     <input type='submit' name='submitProfil' id='submitProfil' value="Mettre à jour">
 </form>
-
-<div>
-    <a href="{{ BASE_PATH }}/log-out"> Déconnexion </a>
-</div>
 
 {% endblock %}

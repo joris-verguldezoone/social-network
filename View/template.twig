@@ -4,11 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Social Network</title>
+        <meta name="description" content=" *** A compléter ***">
+        <meta name="author" content="Joris Verguldezoone | William Kies | Guillaume Grac">
+        <meta name="copyright" content="Joris Verguldezoone | William Kies | Guillaume Grac">
+        <title>Plateforme Network</title>
+        {% block style %}
+        <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ BASE_PATH }}/View/images/logo-la-plateforme-resized.png">
+        {% endblock %}
+        <noscript>Your browser does not support JavaScript!</noscript>
     </head>
     <body>
         <header>
-            <!-- include le header -->
+            {% include 'header.twig' %}
         </header>
 
         <main>
@@ -20,7 +30,7 @@
         </main>
 
         <footer>
-            <!-- include le footer -->
+            {% include 'footer.twig' %}
         </footer>
     </body>
 </html>
