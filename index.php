@@ -30,4 +30,4 @@ $app -> map(['GET', 'POST'], '/profil', ManageController::class . ':profil');
 
 $app -> get('/chat', ManageController::class . ':chat');
 
-$app -> run(); 
+$app -> run();
