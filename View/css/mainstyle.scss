@@ -6,13 +6,12 @@
 
 html{
   scroll-behavior: smooth;
-}
-
-body{
   background-color: white !important;
 }
 
-// ***** HEADER ***** //
+
+
+          // ***** HEADER ***** //
 
 .brand{
   display: flex;
@@ -34,34 +33,30 @@ body{
   font-size: 30px;
 }
 
-// ***** FOOTER ***** //
+
+
+          // ***** FOOTER ***** //
 
 footer{
-  padding: 1%;
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
 
-  .footer-contain{
+  .footer-part{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
 
+    a{
+      text-decoration: none;
+      color: white;
+    }
 
-    section{
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    a:hover
 
-
-      a{
-        color: white;
-        transition: 0.5s;
-        text-decoration: none;
-      }
+    h5{
+      color: black;
     }
   }
 }
@@ -72,14 +67,4 @@ footer{
   border-radius: 10px;
 }
 
-.footer-section1{
 
-}
-
-.footer-section2{
-
-}
-
-.footer-section3{
-  right: 1%;
-}

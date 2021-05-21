@@ -4,7 +4,8 @@
   "description": "Social-network project",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch css/mainstyle.scss:css/style.css"
+    "sass1": "sass --watch View/css/mainstyle.scss:View/css/style.css",
+    "sass2": "sass --watch View/css/maindiscussion.scss:View/css/discussion.css"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/joris-verguldezoone/social-network/issues"
   },
-  "homepage": "https://github.com/joris-verguldezoone/social-network#readme"
+  "homepage": "https://github.com/joris-verguldezoone/social-network#readme",
+  "dependencies": {
+    "trumbowyg": "^2.23.0"
+  }
 }

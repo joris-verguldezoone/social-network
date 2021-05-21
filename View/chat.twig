@@ -1,8 +1,26 @@
 {% extends 'template.twig' %}
 
+{% block style %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/discussion.css">
+{% endblock %}
+
 {% block content %}
 
-    <h1>Salut,</h1>
-    <p>Nous sommes sur la page de discussion.</p>
+    <section class="container">
+        <section class="col">
+            <section class="row">
+
+            </section>
+            <section class="row">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <textarea name="" id="desc" cols="30" rows="5"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary">Primary</button>
+                </form>
+            </section>
+        </section>
+    </section>
 
 {% endblock %}
