@@ -26,8 +26,6 @@ $errorMiddleware = $app -> addErrorMiddleware(true, true, true);
 
 $app -> get('/', ManageController::class . ':main');
 
-$app -> map(['GET', 'POST'], '/profil', ManageController::class . ':profil');
-
 $app -> get('/chat', ManageController::class . ':chat');
 
 $app -> run(); 
