@@ -25,9 +25,13 @@ $app -> addRoutingMiddleware();
 $errorMiddleware = $app -> addErrorMiddleware(true, true, true);
 
 $app -> get('/', ManageController::class . ':main');
+$app -> get('/accueil', ManageController::class . ':main');
+$app -> get('/home', ManageController::class . ':main');
 
 $app -> map(['GET', 'POST'], '/profil', ManageController::class . ':profil');
 
 $app -> get('/chat', ManageController::class . ':chat');
+$app -> get('/message', ManageController::class . ':chat');
+$app -> get('/discussion', ManageController::class . ':chat');
 
 $app -> run();
