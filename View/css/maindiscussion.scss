@@ -20,8 +20,11 @@ footer{
 }
 
 .chat-members{
-  display: block;
+  display: flex;
   position: fixed;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: solid #DDD 2px;
   border-radius: 10px;
   height: 400px;
@@ -29,4 +32,43 @@ footer{
   bottom: 30%;
   left: 2%;
   overflow: auto;
+}
+
+.chat-picture{
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+}
+
+.button-send{
+  display: block;
+  position: fixed;
+  left: 2%;
+  bottom: 2%;
+}
+
+// ***** Scrollbar ***** //
+
+.chat-display::-webkit-scrollbar {
+  width: 15px;
+}
+.chat-display::-webkit-scrollbar-track {
+  background: white;
+}
+.chat-display::-webkit-scrollbar-thumb {
+  background-color : #78c2ad;
+  border-radius: 20px;
+  border: 3px solid whitesmoke;
+}
+
+.chat-members::-webkit-scrollbar {
+  width: 15px;
+}
+.chat-members::-webkit-scrollbar-track {
+  background: white;
+}
+.chat-members::-webkit-scrollbar-thumb {
+  background-color : #78c2ad;
+  border-radius: 20px;
+  border: 3px solid whitesmoke;
 }
