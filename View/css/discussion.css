@@ -2,4 +2,33 @@ footer {
   display: none;
 }
 
+.chat-panel {
+  display: flex;
+  flex-direction: row;
+}
+
+.chat-display {
+  display: block;
+  position: fixed;
+  margin-left: 12%;
+  border: solid #DDD 2px;
+  border-radius: 10px;
+  height: 400px;
+  width: 80%;
+  bottom: 30%;
+  overflow: auto;
+}
+
+.chat-members {
+  display: block;
+  position: fixed;
+  border: solid #DDD 2px;
+  border-radius: 10px;
+  height: 400px;
+  width: 15%;
+  bottom: 30%;
+  left: 2%;
+  overflow: auto;
+}
+
 /*# sourceMappingURL=discussion.css.map */
