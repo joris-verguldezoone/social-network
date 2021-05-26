@@ -16,6 +16,11 @@
         </div>
         <input type='submit' name='submitConnection' id='submitConnection' value="Se Connecter">
     </form>
+    <p>{{ session.user.name }}</p>
+    <p>{{ session.user.email }}</p>
+    <p>{{ session.user.sub }}</p>
+    <img src="{{ session.user.picture }}">
+
 </section>
 {% endblock %}
 {% block script %}

@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -6,9 +7,12 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Controller\ManageController;
 use App\Controller\GoogleController;
 use App\Controller\Controller;
-use Google\AccessToken;
 
-require __DIR__ . '/vendor/autoload.php';
+echo __DIR__ . '/vendor/autoload.php';
+
+
+
+use Google\Client;
 
 session_start();
 
@@ -39,5 +43,7 @@ $app->map(['GET', 'POST'], '/connection', GoogleController::class . ':dumb');
 $app->map(['GET', 'POST'], '/authentification', GoogleController::class . ':donkey');
 
 $app->get('/chat', ManageController::class . ':chat');
+
+$app->post('/log_out', ManageController::class . ':log_out');
 
 $app->run();

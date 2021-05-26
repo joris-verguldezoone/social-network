@@ -15,11 +15,11 @@ class Controller
     public function preloadTwig()
     {
         $loader = new FilesystemLoader('View');
-        $this -> twig = new Environment($loader);
+        $this->twig = new Environment($loader);
 
-        $this -> twig -> addGlobal('session', $_SESSION);
-        $this -> twig -> addGlobal('BASE_PATH', BASE_PATH);
-        $this -> twig -> addGlobal('HTTP_HOST', HTTP_HOST);
+        $this->twig->addGlobal('session', $_SESSION);
+        $this->twig->addGlobal('BASE_PATH', BASE_PATH);
+        $this->twig->addGlobal('HTTP_HOST', HTTP_HOST);
     }
 
     /**
