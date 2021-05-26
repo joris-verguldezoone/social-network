@@ -7,11 +7,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Controller\ManageController;
 use App\Controller\GoogleController;
 use App\Controller\Controller;
-
-echo __DIR__ . '/vendor/autoload.php';
-
-
-
 use Google\Client;
 
 session_start();
@@ -46,7 +41,9 @@ $app->get('/chat', ManageController::class . ':chat');
 $app->get('/message', ManageController::class . ':chat');
 $app->get('/discussion', ManageController::class . ':chat');
 
-$app->run();
+$app->get('/connection', GoogleController::class . ':dumb');
+$app->post('/authentification', GoogleController::class . ':donkey');
+
 
 $app->post('/log_out', ManageController::class . ':log_out');
 
