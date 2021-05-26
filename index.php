@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -6,9 +7,12 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Controller\ManageController;
 use App\Controller\GoogleController;
 use App\Controller\Controller;
-use Google\AccessToken;
 
-require __DIR__ . '/vendor/autoload.php';
+echo __DIR__ . '/vendor/autoload.php';
+
+
+
+use Google\Client;
 
 session_start();
 
@@ -30,17 +34,20 @@ $app->addRoutingMiddleware();
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
-$app -> get('/', ManageController::class . ':home');
-$app -> get('/accueil', ManageController::class . ':home');
-$app -> get('/home', ManageController::class . ':home');
+$app->get('/', ManageController::class . ':home');
+$app->get('/accueil', ManageController::class . ':home');
+$app->get('/home', ManageController::class . ':home');
 
-$app -> map(['GET', 'POST'], '/modifyProfil', ManageController::class . ':modifyProfil');
+$app->map(['GET', 'POST'], '/modifyProfil', ManageController::class . ':modifyProfil');
 
-$app -> map(['GET', 'POST'], '/profil', ManageController::class . ':showProfil');
+$app->map(['GET', 'POST'], '/profil', ManageController::class . ':showProfil');
 
-$app -> get('/chat', ManageController::class . ':chat');
-$app -> get('/message', ManageController::class . ':chat');
-$app -> get('/discussion', ManageController::class . ':chat');
+$app->get('/chat', ManageController::class . ':chat');
+$app->get('/message', ManageController::class . ':chat');
+$app->get('/discussion', ManageController::class . ':chat');
 
-$app -> run();
+$app->run();
 
+$app->post('/log_out', ManageController::class . ':log_out');
+
+$app->run();

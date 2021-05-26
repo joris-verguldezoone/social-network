@@ -34,10 +34,23 @@ function initClient() {
         // Call handleAuthClick function when user clicks on
         //      "Sign In/Authorize" button.
         $('#sign-in-or-out-button').click(function () {
-            handleAuthClick();
+            handleAuthClick(); // marhce pas 
+
         });
         $('#revoke-access-button').click(function () {
+            // expire le token 
             revokeAccess();
+            $.ajax({
+                url: 'log_out',
+                dateType: 'json',
+                type: 'POST',
+
+            }).done(function (data) {
+                console.log(data);
+                console.log('ssion destroyed');
+                location.reload();
+            })
+
         });
     });
 }
@@ -67,9 +80,10 @@ function setSigninStatus() {
 
         console.log(GoogleAuth.currentUser.he.qc.id_token)
         console.log(GoogleAuth.currentUser.he.Ft['NT'])
-        console.log(GoogleAuth.currentUser.he.Ft['Ve'])
+        console.log(GoogleAuth.currentUser.he.Ft['Ve']) // name
         console.log(GoogleAuth.currentUser.he.Ft['uK'])
 
+        $('#auth-status').append('  Bonjour ' + GoogleAuth.currentUser.he.Ft['Ve']);
 
 
         let token = GoogleAuth.currentUser.he.qc.id_token

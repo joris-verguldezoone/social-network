@@ -17,32 +17,34 @@ class ManageController extends Controller
      */
     public function home(Request $request, Response $response, $args)
     {
-        $this -> preloadTwig();
-        $response -> getBody() -> write($this -> twig -> render('home.twig'));
+        $this->preloadTwig();
+        $response->getBody()->write($this->twig->render('home.twig'));
         return $response;
     }
 
     public function showProfil(Request $request, Response $response, $args)
     {
-        $test = new profilController();
-        $test -> testProfil();
-
-        $this -> preloadTwig();
-        $response -> getBody() -> write($this -> twig -> render('profil.twig'));
+        $this->preloadTwig();
+        $response->getBody()->write($this->twig->render('profil.twig'));
         return $response;
     }
 
     public function modifyProfil(Request $request, Response $response, $args)
     {
-        $this -> preloadTwig();
-        $response -> getBody() -> write($this -> twig -> render('modifyProfil.twig'));
+        $this->preloadTwig();
+        $response->getBody()->write($this->twig->render('modifyProfil.twig'));
         return $response;
     }
 
     public function chat(Request $request, Response $response, $args)
     {
-        $this -> preloadTwig();
-        $response -> getBody() -> write($this -> twig -> render('chat.twig'));
+        $this->preloadTwig();
+        $response->getBody()->write($this->twig->render('chat.twig'));
+        return $response;
+    }
+    public function log_out(Request $request, Response $response, $args)
+    {
+        session_destroy();
         return $response;
     }
 }
