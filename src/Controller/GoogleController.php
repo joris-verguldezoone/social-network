@@ -70,10 +70,31 @@ class GoogleController extends Controller
             echo 'invalid token id';
         }
 
-        var_dump($payload['name']);
         $_SESSION['user'] = $payload;
         // $this->twig->addGlobal('user_info', $payload);
 
+        var_dump($payload);
+
+        return $response;
+    }
+    public function isConnected(Request $request, Response $response, $args)
+    {
+        $method = $request->getMethod();
+        if ($method == 'POST') {
+
+            $params = (array)$request->getParsedBody();
+            $isConnected = $_SESSION['user']['sub'];
+        } else {
+            $isConnected = "";
+        }
+
+        $this->preloadTwig();
+        $response->getBody()->write($this->twig->render(
+            'connection.twig',
+            [
+                'BASE_PATH' => BASE_PATH, "HTTP_HOST" => HTTP_HOST, 'method' => $method, 'isConnected' => $isConnected
+            ]
+        ));
         return $response;
     }
 }

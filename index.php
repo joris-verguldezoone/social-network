@@ -42,8 +42,10 @@ $app->get('/message', ManageController::class . ':chat');
 $app->get('/discussion', ManageController::class . ':chat');
 
 $app->get('/connection', GoogleController::class . ':dumb');
+
 $app->post('/authentification', GoogleController::class . ':donkey');
 
+$app->post('/isConnected', GoogleController::class . ':isConnected');
 
 $app->post('/log_out', ManageController::class . ':log_out');
 
