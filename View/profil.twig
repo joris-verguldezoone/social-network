@@ -1,21 +1,17 @@
 {% extends 'template.twig' %}
 
 {% block style %}
-{{ parent() }}
+    {{ parent() }}
 {% endblock %}
 
 {% block content %}
 
-<h1>Gestion du profil</h1>
+    <br>
+    <br>
+    <br>
+    <br>
 
-<form method='POST' action="{{ BASE_PATH }}/profil" enctype="multipart/form-data">
-    <div>
-        <label for="file"> photo
-            <input type="file" name="file">
-        </label>
-    </div>
-
-    <input type='submit' name='submitProfil' id='submitProfil' value="Mettre à jour">
-</form>
-
+    <img src="{{ session.utilisateur.profil_image }}" alt="" width="200">
+    <h1>{{ session.utilisateur.prenom }}</h1>
+    <h1>{{ session.utilisateur.nom }}</h1>
 {% endblock %}

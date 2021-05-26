@@ -1,0 +1,26 @@
+{% extends 'template.twig' %}
+
+{% block style %}
+{{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>Gestion du profil</h1>
+
+    <form method='POST' action="{{ BASE_PATH }}/modifyProfil" enctype="multipart/form-data">
+        <div>
+            <label for="file"> photo
+                <input type="file" name="file">
+            </label>
+        </div>
+
+        <input type='submit' name='submitProfil' id='submitProfil' value="Mettre à jour">
+    </form>
+
+{% endblock %}

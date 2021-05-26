@@ -15,17 +15,27 @@ class ManageController extends Controller
      * @param $args
      * @return Response
      */
-    public function main(Request $request, Response $response, $args)
+    public function home(Request $request, Response $response, $args)
     {
         $this -> preloadTwig();
         $response -> getBody() -> write($this -> twig -> render('home.twig'));
         return $response;
     }
 
-    public function profil(Request $request, Response $response, $args)
+    public function showProfil(Request $request, Response $response, $args)
     {
+        $test = new profilController();
+        $test -> testProfil();
+
         $this -> preloadTwig();
         $response -> getBody() -> write($this -> twig -> render('profil.twig'));
+        return $response;
+    }
+
+    public function modifyProfil(Request $request, Response $response, $args)
+    {
+        $this -> preloadTwig();
+        $response -> getBody() -> write($this -> twig -> render('modifyProfil.twig'));
         return $response;
     }
 
