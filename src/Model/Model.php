@@ -9,9 +9,9 @@ abstract class Model
     public function __construct()
     {
         $pdo = new \PDO('mysql:host=localhost;dbname=social-network;charset=utf8', 'root', '');
-        $pdo -> setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        $pdo -> setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
-        $this -> pdo = $pdo;
+        $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        $this->pdo = $pdo;
 
         return $pdo;
     }
@@ -26,10 +26,10 @@ abstract class Model
      */
     public function alreadyExist($table, $column, $value)
     {
-        $query = $this -> pdo -> prepare('SELECT ' . $column . ' FROM ' . $table . ' WHERE ' . $column . ' = ?');
-        $query -> execute([$value]);
+        $query = $this->pdo->prepare('SELECT ' . $column . ' FROM ' . $table . ' WHERE ' . $column . ' = ?');
+        $query->execute([$value]);
 
-        return $query -> fetch(\PDO::FETCH_ASSOC);
+        return $query->fetch(\PDO::FETCH_ASSOC);
     }
 
     /**
@@ -42,10 +42,10 @@ abstract class Model
      */
     public function selectAll($table, $column, $value)
     {
-        $query = $this -> pdo -> prepare('SELECT * FROM ' . $table . ' WHERE ' . $column . ' = ?');
-        $query -> execute([$value]);
+        $query = $this->pdo->prepare('SELECT * FROM ' . $table . ' WHERE ' . $column . ' = ?');
+        $query->execute([$value]);
 
-        $result = $query -> fetch(\PDO::FETCH_ASSOC);
+        $result = $query->fetch(\PDO::FETCH_ASSOC);
 
         return $result;
     }
@@ -60,12 +60,17 @@ abstract class Model
      */
     public function checkOneValue($table, $column, $login)
     {
-        $query = $this -> pdo -> prepare('SELECT ' . $column . ' FROM ' . $table . ' WHERE login = :login');
-        $query -> bindValue(':login', $login);
-        $query -> execute();
+        $query = $this->pdo->prepare('SELECT ' . $column . ' FROM ' . $table . ' WHERE login = :login');
+        $query->bindValue(':login', $login);
+        $query->execute();
 
-        $result = $query -> fetch(\PDO::FETCH_ASSOC);
-        if ($result) { return true; } else { echo 'Ce compte n\'existe pas.'; return false; }
+        $result = $query->fetch(\PDO::FETCH_ASSOC);
+        if ($result) {
+            return true;
+        } else {
+            echo 'Ce compte n\'existe pas.';
+            return false;
+        }
     }
 
     /**
@@ -79,10 +84,10 @@ abstract class Model
      */
     public function updateOneValue($table, $column1, $column2, $value1, $value2)
     {
-        $query = $this -> pdo -> prepare('UPDATE ' . $table . ' SET ' . $column1 . ' = :value1 WHERE ' . $column2 . ' = :value2');
-        $query -> bindValue(':value1', $value1);
-        $query -> bindValue(':value2', $value2, \PDO::PARAM_INT);
+        $query = $this->pdo->prepare('UPDATE ' . $table . ' SET ' . $column1 . ' = :value1 WHERE ' . $column2 . ' = :value2');
+        $query->bindValue(':value1', $value1);
+        $query->bindValue(':value2', $value2, \PDO::PARAM_INT);
 
-        $query -> execute();
+        $query->execute();
     }
 }

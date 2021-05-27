@@ -6,6 +6,7 @@ namespace App\Controller;
 require('Controller.php');
 
 use Google\Client;
+use Model\ConnectionModel;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -26,28 +27,6 @@ class GoogleController extends Controller
                 ['BASE_PATH' => BASE_PATH, "HTTP_HOST" => HTTP_HOST]
             ]
         ));
-
-        var_dump($_SESSION);
-        var_dump($_POST);
-
-        //    $name =  $_POST['name'];
-        //    var_dump($_POST['name']);
-        // $image = $_POST['image'];
-        //    $test = $id;
-        // .'<br />'. $name .'<br />'. $image .'successss'
-        //    return json_encode($_GET['id']);
-
-        // $bool = alreadyExist('user', "id_google", $id);
-
-        // if($bool){
-        //     $connectionController = new ConnectionController();
-        //     $connectionController->connect('')
-        // }
-        // else{
-        //     $inscriptionController = new InscriptionController();
-        //     $inscriptionController->register($id, $name)
-        // }
-        //    var_dump($_GET['id']);
         return $response;
     }
     public function donkey(Request $request, Response $response, $args)
@@ -72,6 +51,13 @@ class GoogleController extends Controller
 
         $_SESSION['user'] = $payload;
         // $this->twig->addGlobal('user_info', $payload);
+        $model = new \App\Model\ConnectionModel;
+
+        $alreadyExist = $model->alreadyExist('user_log', 'id_google', $payload['sub']);
+        if (!$alreadyExist) {
+
+            $model->registerGoogleUser($payload['sub'], $payload['name'], $payload['picture']);
+        }
 
         var_dump($payload);
 
