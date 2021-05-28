@@ -12,31 +12,7 @@
             <section class="row chat-panel">
                 <section class="chat-members">
                     <div>
-                       <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
+                       <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
                     </div>
                 </section>
                 <section class="chat-display">
@@ -54,4 +30,8 @@
         </section>
     </section>
 
+{% endblock %}
+
+{% block script %}
+    {{ parent() }}
 {% endblock %}

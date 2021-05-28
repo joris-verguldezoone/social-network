@@ -23,14 +23,23 @@ html {
 
 .navbar-brand {
   margin-left: 3%;
+  text-shadow: black 1px 1px 1px;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: white !important;
+  text-shadow: black 1px 1px 1px;
 }
 
 .icon-nav {
   font-size: 30px;
 }
 
-.name-user {
-  font-size: 20px;
+.user-pic {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
 }
 
 .home-link {
@@ -55,6 +64,14 @@ html {
 
 .profil-link:hover {
   color: #ffce67;
+}
+
+.param-link {
+  transition: 0.2s;
+}
+
+.param-link:hover {
+  color: #f3969a;
 }
 
 footer {

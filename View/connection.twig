@@ -12,8 +12,8 @@
         <section class="connection-button">
             <img class="connection-illustration img-fluid" src="{{ BASE_PATH }}/View/images/login-picture.svg" alt="connection illustration">
             <br>
-            <h1>Join your Plateforme friend's</h1>
-            <a style="display: none" href="#" onclick="signOut();">Sign out</a>
+            <h1 class="text-banner">Join your Plateforme friend's</h1>
+            <a href="#" onclick="signOut();">Sign out</a>
             <br>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </section>
@@ -22,10 +22,7 @@
 {% endblock %}
 
 {% block script %}
+    {{ parent() }}
     <script type="text/javascript" src="{{BASE_PATH}}/js/script.js"></script> <!--script google-->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-
-
-
 {% endblock %}
