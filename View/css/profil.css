@@ -1,3 +1,29 @@
-
-
 /*# sourceMappingURL=profil.css.map */
+.profil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-profil-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+    margin-top: 4.93%;
+    background-image: url("../images/default_background.png");
+    background-position: center;
+}
+
+.top-profil-content img{
+    width: 10%;
+    border-radius: 50%;
+    border: solid 3px #ffffff;
+    margin-top: 27%;
+}
+
+footer{
+    display: none;
+}

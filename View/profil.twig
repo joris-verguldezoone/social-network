@@ -2,15 +2,27 @@
 
 {% block style %}
     {{ parent() }}
+    <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/profil.css">
 {% endblock %}
 
 {% block content %}
+    <section class="profil">
+        <div class="container top-profil-content">
+            <img src="{{ session.user.picture }}" alt="{{ session.user.name }}">
+            <h1>{{ session.user.name }}</h1>
 
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <img src="{{ session.utilisateur.image }}" alt="" width="200">
-    <h1>{{ session.user.name }}</h1>
+            <!-- Form for modify profil photo -->
+            <form action="" method="post">
+                <label for="newBgPicture">
+                    <button class="btn btn-light" type="submit" name="newBgPicture" id="newBgPicture">photo</button>
+                </label>
+            </form>
+            <!-- Form for modify background profil -->
+            <form action="" method="post">
+                <label for="newBgPicture">
+                    <button class="btn btn-light" type="submit" name="newBgPicture" id="newBgPicture">Changer la photo de couverture</button>
+                </label>
+            </form>
+        </div>
+    </section>
 {% endblock %}

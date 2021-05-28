@@ -30,16 +30,12 @@ $app->addRoutingMiddleware();
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 $app->get('/', ManageController::class . ':home');
-$app->get('/accueil', ManageController::class . ':home');
-$app->get('/home', ManageController::class . ':home');
-
-$app->map(['GET', 'POST'], '/modifyProfil', ManageController::class . ':modifyProfil');
 
 $app->map(['GET', 'POST'], '/profil', ManageController::class . ':showProfil');
 
+$app->map(['GET', 'POST'], '/modifyProfil', ManageController::class . ':modifyProfil');
+
 $app->get('/chat', ManageController::class . ':chat');
-$app->get('/message', ManageController::class . ':chat');
-$app->get('/discussion', ManageController::class . ':chat');
 
 $app->get('/connection', GoogleController::class . ':dumb');
 

@@ -4,7 +4,6 @@ namespace App\Model;
 
 class ConnectionModel extends Model
 {
-
     public function registerGoogleUser($id_google, $login, $image)
     { // ce sera l'image en mignature 
 
