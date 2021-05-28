@@ -11,6 +11,15 @@
         <section class="col">
             <section class="row chat-panel">
                 <section class="chat-members">
+                <div class="flex_col">
+            <input type='text' class="fo    rm-control me-2" id='text_search' name='text_search' autocomplete="off">
+            <div id='matchList'></div>
+            </div>
+            <input type='hidden' id='result' name='result'>
+            <div class="search_member">
+                <input  class="btn btn-outline-success" type='submit' id='search' name='search' value='Rechercher'>
+            </div>
+
                     <div>
                        <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
                     </div>
@@ -34,5 +43,7 @@
 {% endblock %}
 
 {% block script %}
+<script src="{{ BASE_PATH }}/js/jqueryUI.js" ></script>
+
     {{ parent() }}
 {% endblock %}

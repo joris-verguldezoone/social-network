@@ -79,4 +79,10 @@ footer {
   border: 3px solid whitesmoke;
 }
 
+.search_member{
+  height:80px;
+  /* overflow: auto; */
+
+}
+
 /*# sourceMappingURL=discussion.css.map */
