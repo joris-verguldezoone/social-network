@@ -15,3 +15,7 @@
     <h1>{{ session.utilisateur.prenom }}</h1>
     <h1>{{ session.utilisateur.nom }}</h1>
 {% endblock %}
+
+{% block script %}
+    {{ parent() }}
+{% endblock %}
