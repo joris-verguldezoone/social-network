@@ -19,6 +19,28 @@ footer{
   overflow: auto;
 }
 
+.search-member{
+  height: 290px;
+  border: solid #DDD 2px;
+  border-radius: 10px;
+  width: 15%;
+  position: fixed;
+  top: 15.5%;
+  left: 2%;
+  padding: 1%;
+  overflow: auto;
+}
+
+.search-bar{
+  display: flex;
+  flex-direction: row;
+
+  .btn{
+    width: 50px;
+    margin-left: 1%;
+  }
+}
+
 .chat-members{
   display: flex;
   position: fixed;
@@ -27,9 +49,9 @@ footer{
   justify-content: center;
   border: solid #DDD 2px;
   border-radius: 10px;
-  height: 400px;
+  height: 290px;
   width: 15%;
-  bottom: 30%;
+  bottom: 2%;
   left: 2%;
   overflow: auto;
 }
@@ -40,12 +62,6 @@ footer{
   height: 100px;
 }
 
-.button-send{
-  display: block;
-  position: fixed;
-  left: 2%;
-  bottom: 2%;
-}
 
 // ***** Scrollbar ***** //
 
@@ -72,3 +88,4 @@ footer{
   border-radius: 20px;
   border: 3px solid whitesmoke;
 }
+

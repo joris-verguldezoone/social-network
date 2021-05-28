@@ -10,28 +10,26 @@
     <section class="container">
         <section class="col">
             <section class="row chat-panel">
+                <section class="search-member">
+                    <div class="search-bar">
+                        <input type='text' class="form-control" id='text_search' name='text_search' autocomplete="off">
+                        <input  class="btn btn-outline-success" type='submit' id='search' name='search' value='🔍'>
+                        <input type='hidden' id='result' name='result'>
+                    </div>
+                    <div id='matchList'></div>
+                </section>
                 <section class="chat-members">
-                <div class="flex_col">
-            <input type='text' class="fo    rm-control me-2" id='text_search' name='text_search' autocomplete="off">
-            <div id='matchList'></div>
-            </div>
-            <input type='hidden' id='result' name='result'>
-            <div class="search_member">
-                <input  class="btn btn-outline-success" type='submit' id='search' name='search' value='Rechercher'>
-            </div>
-
                     <div>
                        <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
                     </div>
                 </section>
                 <section class="chat-display">
-                    a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+
                 </section>
             </section>
             <section class="row">
                 <form class="form-inline">
                     <div class="form-group">
-                        <input type="button" class="form-control button-send" placeholder="uhoh">
                         <textarea name="" id="desc" cols="30" rows="5"></textarea>
                     </div>
                 </form>
