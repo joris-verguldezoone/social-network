@@ -11,8 +11,8 @@
         <h1>Informations Personnelles</h1>
 
         <div class="container all-card-content">
-            <!-- Card 1 -->
-            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+            <!-- Modify Profil Card -->
+            <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
                 <img src="{{ session.user.picture }}" class="card-img-top" alt="{{ session.user.name }}">
                 <div class="card-body">
                     <h5 class="card-title">Photo de Profil</h5>
@@ -21,6 +21,16 @@
                         <input type="file" name="avatar" id="avatar">
                         <input type="submit" name="submitAvatar" id="submitAvatar" value="Changer">
                     </form>
+                </div>
+            </div>
+
+            <!-- Modify Background Card -->
+            <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
+                <img src="{{ BASE_PATH }}/View/images/default_background.png" class="card-img-top" alt="Default Background">
+                <div class="card-body">
+                    <h5 class="card-title">Image de Couverture</h5>
+                    <input type="file" id="background">
+                    <input type="button" value="Changer" id="submitBackground">
                 </div>
             </div>
 
