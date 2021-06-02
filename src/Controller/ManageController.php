@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use App\Controller\ModifyProfilController;
 
 class ManageController extends Controller
 {
@@ -31,6 +32,9 @@ class ManageController extends Controller
 
     public function modifyProfil(Request $request, Response $response, $args)
     {
+        $profilPicture = new ModifyProfilController();
+        $profilPicture -> newProfilPicture();
+
         $this->preloadTwig();
         $response->getBody()->write($this->twig->render('modifyProfil.twig'));
         return $response;

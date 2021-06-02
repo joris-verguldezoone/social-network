@@ -9,20 +9,7 @@
     <section class="profil">
         <div class="container top-profil-content">
             <img src="{{ session.user.picture }}" alt="{{ session.user.name }}">
-            <h1>{{ session.user.name }}</h1>
-
-            <!-- Form for modify profil photo -->
-            <form action="" method="post">
-                <label for="newBgPicture">
-                    <button class="btn btn-light" type="submit" name="newBgPicture" id="newBgPicture">photo</button>
-                </label>
-            </form>
-            <!-- Form for modify background profil -->
-            <form action="" method="post">
-                <label for="newBgPicture">
-                    <button class="btn btn-light" type="submit" name="newBgPicture" id="newBgPicture">Changer la photo de couverture</button>
-                </label>
-            </form>
+            <h1>{{ session.user.name }}<a href="{{ BASE_PATH }}/modifyProfil" class="btn btn-light"><i class="fas fa-cog"></i></a></h1>
         </div>
     </section>
 {% endblock %}

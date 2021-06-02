@@ -2,25 +2,29 @@
 
 {% block style %}
 {{ parent() }}
+    <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/modifyProfil.css">
 {% endblock %}
 
 {% block content %}
 
-    <br>
-    <br>
-    <br>
-    <br>
+    <section class="container-fluid manage-profil">
+        <h1>Informations Personnelles</h1>
 
-    <h1>Gestion du profil</h1>
+        <div class="container all-card-content">
+            <!-- Card 1 -->
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                <img src="{{ session.user.picture }}" class="card-img-top" alt="{{ session.user.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">Photo de Profil</h5>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <label for="avatar"></label>
+                        <input type="file" name="avatar" id="avatar">
+                        <input type="submit" name="submitAvatar" id="submitAvatar" value="Changer">
+                    </form>
+                </div>
+            </div>
 
-    <form method='POST' action="{{ BASE_PATH }}/modifyProfil" enctype="multipart/form-data">
-        <div>
-            <label for="file"> photo
-                <input type="file" name="file">
-            </label>
         </div>
-
-        <input type='submit' name='submitProfil' id='submitProfil' value="Mettre à jour">
-    </form>
+    </section>
 
 {% endblock %}

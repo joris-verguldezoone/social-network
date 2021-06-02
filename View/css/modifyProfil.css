@@ -1,0 +1,23 @@
+.manage-profil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.all-card-content{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card{
+    margin: 0.2%;
+}
+
+header{
+    display: none;
+}
