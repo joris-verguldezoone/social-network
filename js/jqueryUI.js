@@ -16,7 +16,7 @@ $('#text_search').keyup(function () {
 
         for (var i = 0; i < data.length; i++) {
 
-            str = str + '<a style="cursor:pointer;" href=' + data[i][0]['id_google'] + '>' + data[i][0]['login'] + '</a><img src="' + data[i][0]['image'] + '"><br />'
+            str = str + '<a style="cursor:pointer;" href=' + data[i][0]['id_google'] + '>' + data[i][0]['login'] + '</a><img class="img-thumbnail" src="' + data[i][0]['image'] + '"><br />'
 
             // console.log(data[i][0]['img'])
             // console.log(str)
