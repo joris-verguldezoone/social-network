@@ -1,0 +1,17 @@
+.connection-button {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6%;
+  align-items: center;
+}
+
+.connection-illustration {
+  width: 30%;
+  height: 30%;
+}
+
+.text-banner {
+  text-shadow: black 1px 1px 1px;
+}
+
+/*# sourceMappingURL=connection.css.map */

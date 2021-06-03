@@ -6,7 +6,8 @@
   "scripts": {
     "sass1": "sass --watch View/css/mainstyle.scss:View/css/style.css",
     "sass2": "sass --watch View/css/maindiscussion.scss:View/css/discussion.css",
-    "sass3": "sass --watch View/css/mainprofil.scss:View/css/profil.css"
+    "sass3": "sass --watch View/css/mainprofil.scss:View/css/profil.css",
+    "sass4": "sass --watch View/css/mainconnection.scss:View/css/connection.css"
   },
   "repository": {
     "type": "git",
