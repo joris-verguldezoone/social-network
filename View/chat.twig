@@ -12,6 +12,7 @@
             <section class="row chat-panel">
                 <section class="search-member">
                     <div class="search-bar">
+                    <form id="form_search_user" method='post'>
                         <input type='text' class="form-control" id='text_search' name='text_search' autocomplete="off">
                         <input  class="btn btn-outline-success" type='submit' id='search' name='search' value='🔍'>
                         <input type='hidden' id='result' name='result'>
@@ -28,10 +29,14 @@
                 </section>
             </section>
             <section class="row">
+            <button style="position:fixed; top:50%;" type="button" id="sendMsg" class="btn btn-primary">Envoyer</button>
+
                 <form class="form-inline">
                     <div class="form-group">
-                        <textarea name="" id="desc" cols="30" rows="5"></textarea>
+                        <textarea name="desc" id="desc" cols="30" rows="5"></textarea>
+                        
                     </div>
+
                 </form>
             </section>
         </section>
