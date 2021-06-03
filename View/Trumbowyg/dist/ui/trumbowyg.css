@@ -34,15 +34,10 @@
 
 .trumbowyg-box,
 .trumbowyg-editor {
-  background-color: whitesmoke;
-  display: block;
-  position: fixed;
-  bottom: 2%;
-  margin-left: 11%;
-  border: 3px solid #DDD;
+  background-color: #dfe0e1;
+  border: solid #929292 2px;
   border-radius: 10px;
-  width: 80%;
-  min-height: 150px; }
+  min-height: 100px;}
 
 .trumbowyg-box .trumbowyg-editor {
   margin: 0 auto; }
@@ -53,11 +48,11 @@
 
 .trumbowyg-editor,
 .trumbowyg-textarea {
+  border-radius: 10px;
   position: relative;
   box-sizing: border-box;
   padding: 20px;
-  min-height: 150px;
-  width: 100%;
+  min-height: 100px;
   border-style: none;
   resize: none;
   outline: none;
@@ -120,6 +115,7 @@
 
 .trumbowyg-button-pane {
   width: 100%;
+  border-radius: 10px;
   min-height: 36px;
   background: #ecf0f1;
   border-bottom: 1px solid #d7e0e2;
