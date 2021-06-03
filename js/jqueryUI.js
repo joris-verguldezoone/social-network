@@ -32,7 +32,7 @@ $('#matchList').on('click', 'a', function (e) {
     e.preventDefault();
     // get content of <a> tag
     console.log($(this).text());
-
+    var target_name = $(this).text()
     document.getElementById('text_search').value = $(this).text();
 
     $.ajax({
@@ -48,13 +48,30 @@ $('#matchList').on('click', 'a', function (e) {
 
             str_result = str_result + 'coucou'
         }
+
         // console.log(data)
         document.getElementById('result').value = str_result
         console.log(document.getElementById('result').value)
         $('#search').on('click', function (e) {
             e.preventDefault();
+            $('body').append("<p>" + $('#text_search').val() + "</p>");
+            var hiddenID = document.getElementById('hiddenID').value
+            console.log(target_name)
+            console.log(hiddenID)
+            $('#sendMsg').on('click', function () {
 
-            console.log('mabite')
+                var msg = document.getElementById("desc")
+                // console.log(msg.val())
+                $.ajax({
+                    url: 'sendMessage',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: { hiddenID: hiddenID, target_name: target_name }
+                }).done(function (data) {
+                    console.log(data) // renvoie true or failure
+
+                })
+            });
         });
-    })
+    });
 });

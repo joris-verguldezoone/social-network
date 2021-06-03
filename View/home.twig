@@ -10,10 +10,17 @@
 <p>Nous sommes sur la page d'accueil.</p>
 
 
-
+<div class="flex_col">
+            <input type='text' class="fo    rm-control me-2" id='text_search' name='text_search' autocomplete="off">
+            <div id='matchList'></div>
+            </div>
+            <input type='hidden' id='result' name='result'>
+            <input  class="btn btn-outline-success" type='submit' id='search' name='search' value='Rechercher'>
+            <textarea id="response"></textarea>
 
 {% endblock %}
 
 {% block script %}
+<script src="{{ BASE_PATH }}/js/jqueryUI.js" ></script>
     {{ parent() }}
 {% endblock %}
