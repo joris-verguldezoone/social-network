@@ -7,52 +7,67 @@
 
 {% block content %}
 
-    <section class="container">
-        <section class="col">
-            <section class="row chat-panel">
-                <section class="chat-members">
-                    <div>
-                       <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
+    <section class="container-fluid">
+        <section class="main-content">
+
+            <!--- Section Rechercher une personne --->
+            <section class="chat-panel">
+                <section class="search-member">
+                    <div class="search-bar">
+                    <form id="form_search_user" method='post'>
+                        <input type='text' class="form-control" id='text_search' name='text_search' autocomplete="off">
+                        <input  class="btn btn-outline-success" type='submit' id='search' name='search' value='🔍'>
+                        <input type='hidden' id='result' name='result'>
                     </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                    <div>
-                        <img class="chat-picture img-thumbnail" src="{{ BASE_PATH }}/View/images/default.png" alt="photo de profil">
-                    </div>
-                </section>
-                <section class="chat-display">
-                    a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+                    <div id='matchList'></div>
                 </section>
             </section>
-            <section class="row">
+
+            <!--- Section voir ses dicsussion en cours --->
+            <section class="chat-members">
+                <div>
+                    <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
+                    <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
+                    <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
+                    <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
+                    <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
+                    <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
+                    <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
+                    <img class="chat-picture img-thumbnail" src="{{ session.user.picture }}" alt="photo de profil">
+                </div>
+            </section>
+
+            <!--- Section affichage du groupe / membre --->
+            <section class="memberGroup-display">
+                <h3>SCHUABIBZ</h3>
+            </section>
+
+            <!--- Section affichage du chat --->
+            <section class="chat-display">
+                a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+            </section>
+
+            <!--- Section textarea --->
+            <section class="text-area">
                 <form class="form-inline">
-                    <div class="form-group">
-                        <input type="button" class="form-control button-send" placeholder="uhoh">
-                        <label for="desc"></label>
-                        <textarea name="" id="desc" cols="30" rows="5"></textarea>
-                    </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="" id="desc" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="send btn btn-primary form-control"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+
                 </form>
             </section>
+
         </section>
     </section>
 
+{% endblock %}
+
+{% block script %}
+<script src="{{ BASE_PATH }}/js/jqueryUI.js" ></script>
+
+    {{ parent() }}
 {% endblock %}

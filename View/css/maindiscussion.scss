@@ -1,36 +1,91 @@
+body{
+  color: black;
+}
+
 footer{
   display: none;
 }
 
-.chat-panel{
-  display: flex;
-  flex-direction: row;
+.main-content{
+  margin-top: 6%;
+  display: grid;
+  grid-template-columns: 10vw 70vw 15vw;
+  grid-template-rows: 8vh 48vh 28vh;
 }
 
-.chat-display{
-  display: block;
-  position: fixed;
-  margin-left: 12%;
-  border: solid #DDD 2px;
+//Section Rechercher une personne
+
+.chat-panel{
+  margin: 1%;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#matchList{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1%;
+
+  img{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+  }
+
+  a{
+    color: #343a40;
+    transition: 0.3s;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1%;
+  }
+
+  a:hover{
+    color: #00b393;
+  }
+}
+
+.search-member{
+  background-color: #dfe0e1;
+  max-height: 46vh;
+  border: solid #929292 2px;
   border-radius: 10px;
-  height: 400px;
-  width: 80%;
-  bottom: 30%;
+  padding: 1%;
   overflow: auto;
 }
 
-.chat-members{
+.search-bar{
   display: flex;
-  position: fixed;
+  flex-direction: row;
+  padding: 2%;
+
+  .btn{
+    width: 50px;
+    border: solid 3px;
+    background-color: #a8d8ca;
+    margin-left: 1%;
+  }
+}
+
+//Section Voir discussions en cours / anciennes
+
+.chat-members{
+  margin: 1%;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  background-color: #dfe0e1;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: solid #DDD 2px;
+  text-align: center;
+  border: solid #929292 2px;
   border-radius: 10px;
-  height: 400px;
-  width: 15%;
-  bottom: 30%;
-  left: 2%;
   overflow: auto;
 }
 
@@ -40,12 +95,52 @@ footer{
   height: 100px;
 }
 
-.button-send{
-  display: block;
-  position: fixed;
-  left: 2%;
-  bottom: 2%;
+//Section nom du groupe / membre
+
+.memberGroup-display{
+  margin-top: 2%;
+  text-align: center;
+  align-self: end;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
+
+
+//Section affichage du text
+
+.chat-display{
+  border: solid #929292 2px;
+  margin: 1%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border-radius: 10px;
+  background-color: #dfe0e1;
+  overflow: auto;
+}
+
+//Section textarea
+
+.text-area{
+  align-items: center;
+  margin-right: 1%;
+  margin-left: 1%;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+
+  .send{
+    color: black;
+    margin-top: 0.5%;
+    border: none;
+    background-color: #a8d8ca;
+  }
+}
+
 
 // ***** Scrollbar ***** //
 
@@ -53,6 +148,7 @@ footer{
   width: 15px;
 }
 .chat-display::-webkit-scrollbar-track {
+  border-radius: 15px;
   background: white;
 }
 .chat-display::-webkit-scrollbar-thumb {
@@ -65,6 +161,7 @@ footer{
   width: 15px;
 }
 .chat-members::-webkit-scrollbar-track {
+  border-radius: 15px;
   background: white;
 }
 .chat-members::-webkit-scrollbar-thumb {
@@ -72,3 +169,17 @@ footer{
   border-radius: 20px;
   border: 3px solid whitesmoke;
 }
+
+.search-member::-webkit-scrollbar {
+  width: 15px;
+}
+.search-member::-webkit-scrollbar-track {
+  border-radius: 15px;
+  background: white;
+}
+.search-member::-webkit-scrollbar-thumb {
+  background-color : #78c2ad;
+  border-radius: 20px;
+  border: 3px solid whitesmoke;
+}
+

@@ -1,15 +1,28 @@
 {% extends 'template.twig' %}
 
-{% block content %}
-<section>
-    <meta name="google-signin-client_id" content="715843356551-u92it250uv3rljvhk0jdfkck5qmmm9m8.apps.googleusercontent.com">
+{% block style %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/connection.css">
+{% endblock %}
 
-    <a href="#" onclick="signOut();">Sign out</a>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-</section>
+{% block content %}
+
+    <meta name="google-signin-client_id" content="715843356551-u92it250uv3rljvhk0jdfkck5qmmm9m8.apps.googleusercontent.com">
+    <section class="container">
+        <section class="connection-button">
+            <img class="connection-illustration img-fluid" src="{{ BASE_PATH }}/View/images/login-picture.svg" alt="connection illustration">
+            <br>
+            <h1 class="text-banner">Join your Plateforme friend's</h1>
+            <a href="#" onclick="signOut();">Sign out</a>
+            <br>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </section>
+    </section>
+
 {% endblock %}
 
 {% block script %}
+    {{ parent() }}
     <script type="text/javascript" src="{{BASE_PATH}}/js/script.js"></script> <!--script google-->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 {% endblock %}

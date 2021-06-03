@@ -6,6 +6,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Controller\ManageController;
 use App\Controller\GoogleController;
+use App\Controller\RequestController;
+use App\Controller\ChatController;
 use App\Controller\Controller;
 use Google\Client;
 
@@ -43,6 +45,12 @@ $app->post('/authentification', GoogleController::class . ':donkey');
 
 $app->post('/isConnected', GoogleController::class . ':isConnected');
 
-$app->post('/log_out', ManageController::class . ':log_out');
+$app->map(['GET', 'POST'], '/request_all_user', RequestController::class . ':autocomplete_user');
 
+$app->map(['GET', 'POST'], '/sendMessage', ChatController::class . ':sendMessage');
+
+$app->map(['GET', 'POST'], '/loadConversation', ChatController::class . ':loadConversation');
+
+
+$app->post('/log_out', ManageController::class . ':log_out');
 $app->run();

@@ -49,6 +49,20 @@ abstract class Model
 
         return $result;
     }
+    public function countOneValue($id, $value, $col)
+    {
+        $sql = "SELECT $value WHERE $col = ?";
+        $result = $this->pdo->prepare($sql);
+        $result->execute($id);
+
+        $tab = array();
+        $i = 0;
+
+        while ($fetch = $result->fetch(\PDO::FETCH_ASSOC)) {
+            $tab[$i][] = $fetch;
+            $i++;
+        }
+    }
 
     /**
      * Permet de savoir si une valeur existe ou pas
