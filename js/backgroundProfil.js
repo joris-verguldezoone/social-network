@@ -1,11 +1,32 @@
-var btn = document.getElementsById('#submitBackground');
+$(document).ready(function()
+{
+    $("#submitBackground").click(function()
+    {
+        var fd = new FormData();
+        var files = $('#file')[0].files;
 
-/* A Faire :
-*
-* Faire une fonction qui permet de changer l'image de couverture
-* du profil de l'utilisateur.
-*
-* Si il se déconnecte et reconnecte, l'image est la même qu'a sa
-* deconnexion.
-*
-*  */
+        if(files.length > 0 )
+        {
+            fd.append('file',files[0]);
+            $.ajax({
+                url: 'upload_file',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response)
+                {
+                    if(response !== 0)
+                    {
+                        $("#background").attr("src", response);
+                        $(".preview img").show();
+                    } else {
+                        alert('file not uploaded');
+                    }
+                },
+            });
+        }else{
+            alert("Please select a file.");
+        }
+    });
+});

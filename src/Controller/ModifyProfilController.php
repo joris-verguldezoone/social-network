@@ -1,10 +1,6 @@
 <?php
 
-
 namespace App\Controller;
-
-
-use function GuzzleHttp\Psr7\str;
 
 class ModifyProfilController extends Controller
 {
