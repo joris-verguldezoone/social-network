@@ -13,6 +13,9 @@ use Google\Client;
 
 session_start();
 
+
+var_dump($_SESSION);
+
 spl_autoload_register(function ($className) {
     $className = str_replace('App', 'src', $className);
     $filePath =  str_replace('\\', '/', $className) . '.php';
@@ -51,6 +54,8 @@ $app->map(['GET', 'POST'], '/sendMessage', ChatController::class . ':sendMessage
 
 $app->map(['GET', 'POST'], '/loadConversation', ChatController::class . ':loadConversation');
 
+$app -> map(['GET', 'POST'], '/upload_file', ManageController::class . ':changeBackgroundProfil');
 
 $app->post('/log_out', ManageController::class . ':log_out');
+
 $app->run();

@@ -51,4 +51,14 @@ class ManageController extends Controller
         session_destroy();
         return $response;
     }
+
+    public function changeBackgroundProfil(Request $request, Response $response, $args)
+    {
+        $backgroundPicture = new ModifyProfilController();
+        $backgroundPicture -> newBackgroundPicture();
+
+        $this -> preloadTwig();
+        $response -> getBody();
+        return $response;
+    }
 }

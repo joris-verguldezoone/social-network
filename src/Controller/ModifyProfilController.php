@@ -32,4 +32,33 @@ class ModifyProfilController extends Controller
             }
         }
     }
+
+    public function newBackgroundPicture()
+    {
+        $filename = $_FILES['file']['name'];
+        $location = 'upload/' . $filename;
+        $uploadOk = 1;
+
+        $imageFileType = pathinfo($location, PATHINFO_EXTENSION);
+        $validExt = array('jpeg', 'jpg', 'png', 'svg', 'gif');
+
+        if (!in_array(strtolower($imageFileType), $validExt))
+        {
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 0){
+
+            echo (0);
+        } else
+        {
+            if (move_uploaded_file($_FILES['file']['tmp_name'], $location))
+            {
+                echo ($location);
+            } else
+            {
+                echo (0);
+            }
+        }
+    }
 }

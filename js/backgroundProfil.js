@@ -1,32 +1,26 @@
-$(document).ready(function()
+$(document).ready(function ()
 {
-    $("#submitBackground").click(function()
+    $('#submitBackground').click(function ()
     {
-        var fd = new FormData();
-        var files = $('#file')[0].files;
+        const fd = new FormData();
+        const files = $('#background')[0].files[0];
+        fd.append('file', files);
 
-        if(files.length > 0 )
-        {
-            fd.append('file',files[0]);
-            $.ajax({
-                url: 'upload_file',
-                type: 'post',
-                data: fd,
-                contentType: false,
-                processData: false,
-                success: function(response)
-                {
-                    if(response !== 0)
-                    {
-                        $("#background").attr("src", response);
-                        $(".preview img").show();
-                    } else {
-                        alert('file not uploaded');
-                    }
-                },
-            });
-        }else{
-            alert("Please select a file.");
-        }
+        $.ajax({
+           url: 'upload_file',
+           type: 'post',
+           data: fd,
+           contentType: false,
+           processData: false,
+           success: function (response)
+           {
+               if (response !== 0) {
+                   $('#change-bg-profil').attr('src', response);
+                   $('.preview-img').show();
+               } else {
+                   alert('File not uploaded !');
+               }
+           }
+        });
     });
 });
