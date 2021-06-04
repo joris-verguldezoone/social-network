@@ -7,7 +7,8 @@
     "sass1": "sass --watch View/css/mainstyle.scss:View/css/style.css",
     "sass2": "sass --watch View/css/maindiscussion.scss:View/css/discussion.css",
     "sass3": "sass --watch View/css/mainprofil.scss:View/css/profil.css",
-    "sass4": "sass --watch View/css/mainconnection.scss:View/css/connection.css"
+    "sass4": "sass --watch View/css/mainconnection.scss:View/css/connection.css",
+    "sass5": "sass --watch View/css/mainhome.scss:View/css/home.css"
   },
   "repository": {
     "type": "git",
