@@ -104,4 +104,15 @@ abstract class Model
 
         $query->execute();
     }
+    public function fetchOneValueCol($table, $col, $value)
+    {
+        $sql = "SELECT * FROM $table WHERE $col = :value ";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':value', $value, \PDO::PARAM_STR);
+        $result->execute();
+        $fetch = $result->fetchAll(\PDO::FETCH_ASSOC);
+
+
+        return $fetch;
+    }
 }

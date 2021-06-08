@@ -1,4 +1,4 @@
-var btn = document.getElementsById('#submitBackground');
+// var btn = document.getElementsById('#submitBackground');
 
 /* A Faire :
 *

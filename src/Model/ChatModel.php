@@ -5,7 +5,7 @@ namespace App\Model;
 class ChatModel extends Model
 {
 
-    public function asignGroup($hiddenID, $target_name)
+    public function asignGroup($hiddenID, $target_name, $img)
     {
 
         $result1 = $this->verifyGroup($hiddenID);
@@ -33,18 +33,25 @@ class ChatModel extends Model
 
             $uniqIDGroup = uniqid();
             $convertStr = strval($hiddenID);
-            $sql = "INSERT INTO groups (google_id, id_group) VALUES (:hiddenID, :uniqIDGroup)";
+            $convertStr2 = strval($_SESSION['user']['sub']);
+            $user_name = $_SESSION['user']['name'];
+            $user_img = $_SESSION['user']['picture'];
+
+            $sql = "INSERT INTO groups (google_id, id_group, name, img) VALUES (:hiddenID, :uniqIDGroup, :target_name, :img)";
             $result = $this->pdo->prepare($sql);
             $result->bindValue(":hiddenID", $convertStr, \PDO::PARAM_STR);
             $result->bindValue(":uniqIDGroup", $uniqIDGroup, \PDO::PARAM_STR);
+            $result->bindValue(":target_name", $user_name, \PDO::PARAM_STR);
+            $result->bindValue(":img", $user_img, \PDO::PARAM_STR);
             $result->execute();
 
-            $convertStr2 = strval($_SESSION['user']['sub']);
 
-            $sql2 = "INSERT INTO groups (google_id ,id_group) VALUES (:user_id, :uniqIDGroup)";
+            $sql2 = "INSERT INTO groups (google_id ,id_group, name, img) VALUES (:user_id, :uniqIDGroup, :target_name, :img)";
             $result2 = $this->pdo->prepare($sql2);
             $result2->bindValue(":user_id", $convertStr2, \PDO::PARAM_STR);
             $result2->bindValue(":uniqIDGroup", $uniqIDGroup, \PDO::PARAM_STR);
+            $result2->bindValue(":target_name", $target_name, \PDO::PARAM_STR);
+            $result2->bindValue(":img", $img, \PDO::PARAM_STR);
             $result2->execute();
             var_dump('group created');
         }
@@ -60,5 +67,39 @@ class ChatModel extends Model
 
 
         return $fetch;
+    }
+    public function fetch_groupChat($id_group)
+    {
+        $google_id = $_SESSION['user']['sub'];
+
+        $sql = "SELECT * FROM groups WHERE id_group = :id_group AND google_id = :google_id";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':id_group', $id_group, \PDO::PARAM_STR);
+        $result->bindValue(':google_id', $google_id, \PDO::PARAM_STR);
+
+        $result->execute();
+
+        $fetch = $result->fetchAll(\PDO::FETCH_ASSOC);
+
+        // var_dump($fetch_group_identity);
+
+        return $fetch;
+    }
+    public function sendMsg($id_group, $id_google, $content)
+    {
+
+        $date = date('Y-m-d H:i:s');
+
+        $sql = "INSERT INTO group_message (id_group, id_google, content, date) VALUES (:id_group, :id_google, :content, :date)";
+
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(":id_group", $id_group, \PDO::PARAM_STR);
+        $result->bindValue(":id_google", $id_google, \PDO::PARAM_STR);
+        $result->bindValue(":content", $content, \PDO::PARAM_STR);
+        $result->bindValue(":date", $date, \PDO::PARAM_STR);
+
+        // var_dump($date);
+
+        $result->execute();
     }
 }
