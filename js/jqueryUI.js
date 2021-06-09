@@ -94,13 +94,15 @@ function fetchGroupConversation() {
 
         for (var i = 0; i < data.length; i++) {
 
-            $('#display_group_chat').append('<div style="cursor:pointer;" id="conversation_container"><img class="chat-picture img-thumbnail" src="' + data[i].img + '" alt="photo de profil"><input type="hidden" value="' + data[i].id_group + '"></div>');
+            $('#display_group_chat').append('<div style="cursor:pointer;" id="conversation_container"><img class="chat-picture img-thumbnail" src="' + data[i].img + '" alt="photo de profil"><input type="hidden" value="' + data[i].id_group + '"><input id="hiddenNamePrinted" value="' + data[i].name + '"></div>');
 
         }
         $('#display_group_chat').on('click', 'div', function (e) {
             // var target_img = $(this)[0]['attributes']['src']['nodeValue']
             var img_conversation = $(this)[0]['childNodes'][0]['attributes']['src']['nodeValue'];
             var hidden_group_id = $(this)[0]['childNodes'][1]['attributes'][1]['value']
+            // var name = data[]
+            var name_group = $(this)[0]['childNodes'][2].defaultValue
             console.log(hidden_group_id)
             console.log($(this))
             $.ajax({
@@ -117,27 +119,33 @@ function fetchGroupConversation() {
 
                 }).done(function (datum) {
                     console.log(datum)
-                    currentUser = datum
-                })
-                console.log(data)
-                console.log(data[1])
-                console.log(data[0][0]['img'])
-                console.log(data[0][0]['name'])
+                    var currentUser = datum
+                    console.log(data)
+                    console.log(data[1])
+                    console.log(data[0][0]['img'])
+                    console.log(data[0][0]['name'])
 
 
 
-                $("#desc").empty()
-                $(".chat-display").empty()
-                $(".memberGroup-display").empty();
-                $(".memberGroup-display").append('<h3 id="title_user">' + data[0][0]["name"] + '</h3><img id="user_img_conversation" src="' + data[0][0]["img"] + '" >')
+                    $("#desc").empty()
+                    $(".chat-display").empty()
+                    $(".memberGroup-display").empty();
+                    $(".memberGroup-display").append('<h3 id="title_user">' + data[0][0]["name"] + '</h3><img id="user_img_conversation" src="' + data[0][0]["img"] + '" >')
 
-                var i = 0
-                data[1].forEach(element => {
+                    var i = 0
+                    data[1].forEach(element => {
+                        if (currentUser == data[1][i].id_google) {
+                            $(".chat-display").append('<div class="sendedMsg">' + data[1][i].content + '</div><i class="date_msg_sended">' + data[1][i].date + '</i>')
+                        }
+                        else {
+                            $(".chat-display").append('<div class="reciviedMsg">' + data[1][i].content + '</div><i class="date_msg">' + data[1][i].date + '</i>')
 
-                    console.log(data[1][i].content)
+                        }
+                        console.log(data[1][i].content)
+                        console.log(data[1][i].id_google)
 
-                    $(".chat-display").append('<div class="reciviedMsg">' + data[1][i].content + '</div><i class="date_msg">' + data[1][i].date + '</i>')
-                    i++;
+                        i++;
+                    })
                 });
                 $(".chat-display").scrollTop($(".chat-display")[0].scrollHeight);
 
@@ -159,11 +167,11 @@ function fetchGroupConversation() {
                     url: 'sendMessages',
                     dataType: 'json',
                     type: 'POST',
-                    data: { hidden_group_id: hidden_group_id, msg_content: msg_content }
-
+                    data: { hidden_group_id: hidden_group_id, msg_content: msg_content, name_group: name_group }
                 }).done(function (data) {
                     console.log(data)
                 })
+                // id id_google id_group name type
             })
         })
     })

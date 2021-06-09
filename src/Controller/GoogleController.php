@@ -35,7 +35,7 @@ class GoogleController extends Controller
         $this->preloadTwig();
 
         $id_token = $_POST['token'];
-
+        // $model = new \App\Model\RequestModel;
         $clientID = '715843356551-u92it250uv3rljvhk0jdfkck5qmmm9m8.apps.googleusercontent.com';
         // $client = new Google_Client();
 
@@ -55,14 +55,19 @@ class GoogleController extends Controller
         $fetchInfoUser = new ModifyProfilModel();
 
         $alreadyExist = $model->alreadyExist('user_log', 'id_google', $payload['sub']);
-        if (!$alreadyExist)
-        {
-            $_SESSION['user'] = $payload;
-            $model->registerGoogleUser($payload['sub'], $payload['name'], $payload['picture']);
+        if (!$alreadyExist) {
+
+            $model->registerGoogleUser($payload['sub'], $payload['name'], $payload['picture'], 1);
         } else {
-            $allInfo = $fetchInfoUser -> getAllInfoUser($payload['sub']);
-            $_SESSION['user']['picture'] = $allInfo['image'];
-            var_dump($_SESSION);
+            $allInfo = $fetchInfoUser->getAllInfoUser($payload['sub']);
+            // $_SESSION['user']['picture'] = $allInfo['image'];
+            // var_dump($_SESSION);
+            $payload['picture'] = $allInfo['image'];
+            // var_dump($allInfo['image']);
+            $_SESSION['user'] = $payload;
+            $id = $_SESSION['user']['sub'];
+
+            $model->updateOneValue('user_log', 'connection', 'id_google', 1, $id);
         }
 
         return $response;

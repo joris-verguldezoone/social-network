@@ -5,6 +5,7 @@ namespace App\Controller;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Controller\ModifyProfilController;
+use Slim\App;
 
 class ManageController extends Controller
 {
@@ -48,6 +49,12 @@ class ManageController extends Controller
     }
     public function log_out(Request $request, Response $response, $args)
     {
+        $model = new \App\Model\ConnectionModel;
+
+        $id = $_SESSION['user']['sub'];
+
+        $model->updateOneValue('user_log', 'connection', 'id_google', 0, $id);
+
         session_destroy();
         return $response;
     }
@@ -56,6 +63,7 @@ class ManageController extends Controller
         $iAm = $_SESSION['user']['sub'];
         $iAm = json_encode($iAm);
         $response->getBody()->write($iAm);
+        return $response;
     }
     public function changeBackgroundProfil(Request $request, Response $response, $args)
     {

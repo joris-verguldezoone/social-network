@@ -72,8 +72,24 @@ class ChatController extends Controller
         $group_id = $_POST["hidden_group_id"];
         $content = $_POST['msg_content'];
         $id_google = $_SESSION['user']['sub'];
+        $name_group = $_POST['name_group'];
+
+        // id id_google id_group name type
+
 
         $model = new \App\Model\ChatModel;
+        $isConnected = $model->alreadyExist('user_log', 'connection', $_SESSION['user']['sub']);
+
+
+
+        if ($isConnected == 0) {
+            $result = $model->sendMsg($group_id, $id_google, $content);
+            $model->insertNotif($id_google, $group_id, $name_group, 'message');
+        } else {
+
+            $result = $model->sendMsg($group_id, $id_google, $content);
+        }
+
         $result = $model->sendMsg($group_id, $id_google, $content);
         $response->getBody(); // write json encodé
 

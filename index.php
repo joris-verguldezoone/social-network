@@ -9,9 +9,8 @@ use App\Controller\GoogleController;
 use App\Controller\RequestController;
 use App\Controller\ChatController;
 use App\Controller\Controller;
-use Google\Client;
 
-session_start();
+
 spl_autoload_register(function ($className) {
     $className = str_replace('App', 'src', $className);
     $filePath =  str_replace('\\', '/', $className) . '.php';
@@ -20,11 +19,16 @@ spl_autoload_register(function ($className) {
     }
 });
 
+session_start();
+// var_dump($_SESSION);
 $app = AppFactory::create();
 
 define('BASE_PATH', rtrim(dirname($_SERVER["SCRIPT_NAME"]), '/'));
 define('HTTP_HOST', $_SERVER["HTTP_HOST"]);
 $app->setBasePath(BASE_PATH);
+
+var_dump(BASE_PATH);
+// var_dump(__DIR__);
 
 $app->addRoutingMiddleware();
 
@@ -40,7 +44,7 @@ $app->get('/chat', ManageController::class . ':chat');
 
 $app->get('/connection', GoogleController::class . ':dumb');
 
-$app->post('/authentification', GoogleController::class . ':donkey');
+$app->map(['GET', 'POST'], '/authentification', GoogleController::class . ':donkey');
 
 $app->post('/isConnected', GoogleController::class . ':isConnected');
 

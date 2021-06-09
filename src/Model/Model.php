@@ -100,9 +100,14 @@ abstract class Model
     {
         $query = $this->pdo->prepare('UPDATE ' . $table . ' SET ' . $column1 . ' = :value1 WHERE ' . $column2 . ' = :value2');
         $query->bindValue(':value1', $value1);
-        $query->bindValue(':value2', $value2, \PDO::PARAM_INT);
+        $query->bindValue(':value2', $value2);
 
         $query->execute();
+        var_dump($value1);
+        var_dump($value2);
+        var_dump($column1);
+        var_dump($column2);
+        var_dump($query);
     }
     public function fetchOneValueCol($table, $col, $value)
     {
@@ -113,6 +118,22 @@ abstract class Model
         $fetch = $result->fetchAll(\PDO::FETCH_ASSOC);
 
 
+
         return $fetch;
+    }
+    public function insertNotif($id_google, $id_group, $name, $type)
+    {
+        $sql = "INSERT INTO notification (id_google, id_group, name, type) VALUES (:id_google, :id_group, :name, :type)";
+        $result = $this->pdo->prepare($sql);
+
+        $result->bindValue(":id_google", $id_google, \PDO::PARAM_STR);
+        $result->bindValue(":id_group", $id_group, \PDO::PARAM_STR);
+        $result->bindValue(":name", $name, \PDO::PARAM_STR);
+        $result->bindValue(":type", $type, \PDO::PARAM_STR);
+        var_dump($id_google);
+        var_dump($id_group);
+        var_dump($name);
+        var_dump($type);
+        $result->execute();
     }
 }
