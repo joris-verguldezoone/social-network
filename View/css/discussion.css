@@ -169,5 +169,16 @@ header{display: none;}
   border-radius: 20px;
   border: 3px solid whitesmoke;
 }
-
+.reciviedMsg{
+  background-color: teal;
+  padding:10px;
+  min-width: 50px;
+  max-width:350px;
+  margin:10px;
+  min-height:50px;
+  border-radius: 1em;
+}
+.date_msg{
+  margin-left:20px;
+}
 /*# sourceMappingURL=discussion.css.map */

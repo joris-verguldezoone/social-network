@@ -55,5 +55,7 @@ $app->map(['GET', 'POST'], '/fetch_conversation', ChatController::class . ':fetc
 
 $app->map(['GET', 'POST'], '/sendMessages', ChatController::class . ':sendMessages');
 
+$app->map(['GET', 'POST'], '/who_am_i', ManageController::class . ':who_am_i');
+
 $app->post('/log_out', ManageController::class . ':log_out');
 $app->run();

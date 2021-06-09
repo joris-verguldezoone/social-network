@@ -33,7 +33,7 @@ class ManageController extends Controller
     public function modifyProfil(Request $request, Response $response, $args)
     {
         $profilPicture = new ModifyProfilController();
-        $profilPicture -> newProfilPicture();
+        $profilPicture->newProfilPicture();
 
         $this->preloadTwig();
         $response->getBody()->write($this->twig->render('modifyProfil.twig'));
@@ -49,6 +49,13 @@ class ManageController extends Controller
     public function log_out(Request $request, Response $response, $args)
     {
         session_destroy();
+        return $response;
+    }
+    public function who_am_i(Request $request, Response $response, $args)
+    {
+        $iAm = $_SESSION['user']['sub'];
+        $iAm = json_encode($iAm);
+        $response->getBody()->write($iAm);
         return $response;
     }
 }

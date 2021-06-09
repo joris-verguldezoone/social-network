@@ -87,8 +87,11 @@ class ChatModel extends Model
     }
     public function sendMsg($id_group, $id_google, $content)
     {
+        $tz_object = new \DateTimeZone('Europe/Paris');
 
-        $date = date('Y-m-d H:i:s');
+        $date = new \DateTime();
+        $date->setTimezone($tz_object);
+        $date = $date->format('Y-m-d H:i:s');
 
         $sql = "INSERT INTO group_message (id_group, id_google, content, date) VALUES (:id_group, :id_google, :content, :date)";
 

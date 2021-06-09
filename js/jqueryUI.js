@@ -92,8 +92,6 @@ function fetchGroupConversation() {
     }).done(function (data) {
         console.log(data)
 
-
-
         for (var i = 0; i < data.length; i++) {
 
             $('#display_group_chat').append('<div style="cursor:pointer;" id="conversation_container"><img class="chat-picture img-thumbnail" src="' + data[i].img + '" alt="photo de profil"><input type="hidden" value="' + data[i].id_group + '"></div>');
@@ -111,26 +109,51 @@ function fetchGroupConversation() {
                 type: 'POST',
                 data: { hidden_group_id: hidden_group_id }
             }).done(function (data) {
+
+                $.ajax({
+                    url: "who_am_i",
+                    dataType: 'json',
+                    type: 'POST',
+
+                }).done(function (datum) {
+                    console.log(datum)
+                    currentUser = datum
+                })
                 console.log(data)
                 console.log(data[1])
                 console.log(data[0][0]['img'])
                 console.log(data[0][0]['name'])
 
+
+
+                $("#desc").empty()
+                $(".chat-display").empty()
                 $(".memberGroup-display").empty();
                 $(".memberGroup-display").append('<h3 id="title_user">' + data[0][0]["name"] + '</h3><img id="user_img_conversation" src="' + data[0][0]["img"] + '" >')
 
                 var i = 0
                 data[1].forEach(element => {
+
                     console.log(data[1][i].content)
-                    $(".chat-display").append(data[1][i].content)
+
+                    $(".chat-display").append('<div class="reciviedMsg">' + data[1][i].content + '</div><i class="date_msg">' + data[1][i].date + '</i>')
                     i++;
                 });
+                $(".chat-display").scrollTop($(".chat-display")[0].scrollHeight);
 
             });
 
             $('#sendMsg').on('click', function (e) {
+                var messageWritten = $("#desc")
+                console.log(messageWritten[0].classList)
+
                 msg_content = document.getElementById("desc").value
-                console.log(document.getElementById("desc").value)
+                var tamere = $(".trumbowyg-editor")
+                tamere.empty()
+
+
+
+
                 console.log(hidden_group_id)
                 $.ajax({
                     url: 'sendMessages',
