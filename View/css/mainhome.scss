@@ -1,0 +1,121 @@
+body{
+  color: black;
+}
+
+.main-content{
+  max-height: 60vh;
+  display: grid;
+  grid-template-columns: 14vw 70vw 14vw;
+  margin-top: 8%;
+}
+
+.groupe-panel{
+  max-height: 60vh;
+  border: solid 2px #ffce67;
+  border-radius: 10px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  text-align: center;
+
+  h3{
+    text-shadow: black 1px 1px 1px;
+    color: #ffce67;
+  }
+
+  .groupe-display{
+    max-height: 50vh;
+    overflow: auto;
+  }
+}
+
+.story-panel{
+  max-height: 60vh;
+  border: solid 2px #ffa88e;
+  border-radius: 10px;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  text-align: center;
+  overflow: auto;
+
+  h3{
+    text-shadow: black 1px 1px 1px;
+    color: #ffa88e;
+  }
+
+  .story-display{
+    max-height: 50vh;
+    overflow: auto;
+  }
+}
+
+.feed-panel{
+  max-height: 60vh;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  overflow: auto;
+  justify-self: center;
+}
+
+.post{
+  text-align: center;
+  border: solid 2px #56cc9d;
+  border-radius: 10px;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1%;
+
+  img{
+    margin: 1.5%;
+    height: auto;
+    max-width: 50%;
+    border-radius: 10px;
+    border: #b3d4fc 2px solid;
+  }
+}
+
+.like-comment{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+//Scrollbar
+
+.feed-panel::-webkit-scrollbar {
+  display: none;
+}
+.feed-panel::-webkit-scrollbar-track {
+  display: none;
+}
+.feed-panel::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+.groupe-display::-webkit-scrollbar {
+  width: 15px;
+}
+.groupe-display::-webkit-scrollbar-track {
+  border-radius: 15px;
+  background: white;
+}
+.groupe-display::-webkit-scrollbar-thumb {
+  background-color : #ffce67;
+  border-radius: 20px;
+  border: 3px solid whitesmoke;
+}
+
+.story-display::-webkit-scrollbar {
+  width: 15px;
+}
+.story-display::-webkit-scrollbar-track {
+  border-radius: 15px;
+  background: white;
+}
+.story-display::-webkit-scrollbar-thumb {
+  background-color : #ffa88e;
+  border-radius: 20px;
+  border: 3px solid whitesmoke;
+}

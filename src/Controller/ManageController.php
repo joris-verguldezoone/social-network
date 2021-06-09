@@ -56,6 +56,14 @@ class ManageController extends Controller
         $iAm = $_SESSION['user']['sub'];
         $iAm = json_encode($iAm);
         $response->getBody()->write($iAm);
+    }
+    public function changeBackgroundProfil(Request $request, Response $response, $args)
+    {
+        $backgroundPicture = new ModifyProfilController();
+        $backgroundPicture->newBackgroundPicture();
+
+        $this->preloadTwig();
+        $response->getBody();
         return $response;
     }
 }

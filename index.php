@@ -12,7 +12,13 @@ use App\Controller\Controller;
 use Google\Client;
 
 session_start();
+<<<<<<< HEAD
 // var_dump($_SESSION);
+=======
+
+var_dump($_SESSION['user']);
+
+>>>>>>> origin/w-change-bg-profil
 spl_autoload_register(function ($className) {
     $className = str_replace('App', 'src', $className);
     $filePath =  str_replace('\\', '/', $className) . '.php';
@@ -51,11 +57,16 @@ $app->map(['GET', 'POST'], '/sendMessage', ChatController::class . ':sendMessage
 
 $app->map(['GET', 'POST'], '/loadConversation', ChatController::class . ':loadConversation');
 
+<<<<<<< HEAD
 $app->map(['GET', 'POST'], '/fetch_conversation', ChatController::class . ':fetchConversation');
 
 $app->map(['GET', 'POST'], '/sendMessages', ChatController::class . ':sendMessages');
 
 $app->map(['GET', 'POST'], '/who_am_i', ManageController::class . ':who_am_i');
+=======
+$app -> map(['GET', 'POST'], '/upload_file', ManageController::class . ':changeBackgroundProfil');
+>>>>>>> origin/w-change-bg-profil
 
 $app->post('/log_out', ManageController::class . ':log_out');
+
 $app->run();

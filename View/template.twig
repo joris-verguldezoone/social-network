@@ -9,62 +9,60 @@
         <meta name="copyright" content="Joris Verguldezoone | William Kies | Guillaume Grac">
         <title>Plateforme Network</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    {% block style %}
-    <!--- Trumbowyg --->
-    <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/ui/trumbowyg.css">
-    <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.min.css">
-    <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/giphy/ui/trumbowyg.giphy.min.css">
-    <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/emoji/ui/trumbowyg.emoji.min.css">
-    <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/specialchars/ui/trumbowyg.specialchars.min.css">
+        {% block style %}
+            <!--- Trumbowyg --->
+            <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/ui/trumbowyg.css">
+            <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.min.css">
+            <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/giphy/ui/trumbowyg.giphy.min.css">
+            <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/emoji/ui/trumbowyg.emoji.min.css">
+            <link rel="stylesheet" href="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/specialchars/ui/trumbowyg.specialchars.min.css">
+            <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
 
-
-
-    <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ BASE_PATH }}/View/images/logo-la-plateforme-resized.png">
-    {% endblock %}
-
-    <noscript>Your browser does not support JavaScript!</noscript>
-</head>
+            <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+            <link rel="icon" type="image/png" sizes="16x16" href="{{ BASE_PATH }}/View/images/logo-la-plateforme-resized.png">
+            <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
+        {% endblock %}
+        <noscript>Your browser does not support JavaScript!</noscript>
+    </head>
     <body>
         <header>
             {% include 'header.twig' %}
         </header>
+
         <main>
             <article>
                 {% block content %}
                 {% endblock %}
             </article>
         </main>
+
         <footer>
             {% include 'footer.twig' %}
         </footer>
     </body>
 
     {% block script %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="{{ BASE_PATH }}/View/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-    <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/trumbowyg.min.js"></script>
-    <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/colors/trumbowyg.colors.min.js"></script>
-    <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/giphy/trumbowyg.giphy.min.js"></script>
-    <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/emoji/trumbowyg.emoji.min.js"></script>
-    <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/specialchars/trumbowyg.specialchars.min.js"></script>
-    <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/pasteembed/trumbowyg.pasteembed.min.js"></script>
-<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="{{ BASE_PATH }}/View/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+        <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/trumbowyg.min.js"></script>
+        <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/colors/trumbowyg.colors.min.js"></script>
+        <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/giphy/trumbowyg.giphy.min.js"></script>
+        <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/emoji/trumbowyg.emoji.min.js"></script>
+        <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/specialchars/trumbowyg.specialchars.min.js"></script>
+        <script src="{{ BASE_PATH }}/View/Trumbowyg/dist/plugins/pasteembed/trumbowyg.pasteembed.min.js"></script>
 
-
-
-    <script>$('#desc').trumbowyg({
-            btns: ['giphy', 'emoji'],
-            plugins: {
-                giphy: {
-                    apiKey: 'oKdEEgmCNmD1oeYpny5N76Gphksggek0'
+        <script>$('#desc').trumbowyg({
+                btns: ['giphy', 'emoji'],
+                plugins: {
+                    giphy: {
+                        apiKey: 'oKdEEgmCNmD1oeYpny5N76Gphksggek0'
+                    }
                 }
-            }
-        });
-    </script>
-    <script src="{{ BASE_PATH }}/js/backgroundProfil.js"></script>
+            });
+        </script>
+        <script src="{{ BASE_PATH }}/js/backgroundProfil.js"></script>
     {% endblock %}
 </html>

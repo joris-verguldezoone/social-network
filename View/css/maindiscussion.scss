@@ -183,3 +183,15 @@ footer{
   border: 3px solid whitesmoke;
 }
 
+
+// Media Queries
+
+@media screen and (max-width: 425px){}
+
+@media screen and (min-width: 426px) and (max-width: 768px){}
+
+@media screen and (min-width: 768px) and (max-width: 992px){}
+
+@media screen and (min-width: 992px) and (max-width: 1365px){}
+
+@media screen and (min-width: 1365px) and (max-width: 1568px){}

@@ -1,15 +1,12 @@
 {% extends 'template.twig' %}
 
 {% block style %}
-{{ parent() }}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ BASE_PATH }}/View/css/home.css">
 {% endblock %}
 
 {% block content %}
-
-<h1>Salut,</h1>
-<p>Nous sommes sur la page d'accueil.</p>
-
-
+    
 <div class="flex_col">
             <input type='text' class="fo    rm-control me-2" id='text_search' name='text_search' autocomplete="off">
             <div id='matchList'></div>
@@ -17,6 +14,41 @@
             <input type='hidden' id='result' name='result'>
             <input  class="btn btn-outline-success" type='submit' id='search' name='search' value='Rechercher'>
             <textarea id="response"></textarea>
+    <section class="container-fluid">
+        <section class="main-content">
+
+            <!--- Groupe and stats Panel --->
+            <section class="groupe-panel">
+                <h3><i class="fas fa-users"></i></h3>
+                <section class="groupe-display">
+
+                </section>
+            </section>
+
+            <!--- Feed --->
+            <section class="feed-panel">
+                <section class="post">
+                    <div>
+                        <img class="img-fluid" src="{{ BASE_PATH }}/View/images/default.png">
+                        <p> Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post</p>
+                    </div>
+                    <div class="like-comment">
+                        <p><span><i class="far fa-thumbs-up"></i></span> | J'aime</p>
+                        <p><span><i class="far fa-comment-dots"></i></span> | Commenter</p>
+                    </div>
+                </section>
+            </section>
+
+            <!--- Story --->
+            <section class="story-panel">
+                <h3><i class="fas fa-history"></i></h3>
+                <section class="story-display">
+
+                </section>
+            </section>
+
+        </section>
+    </section>
 
 {% endblock %}
 
