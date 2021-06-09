@@ -14,7 +14,7 @@
             <!-- Modify Profil Card -->
             <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
                 <form action="" method="post" enctype="multipart/form-data">
-                    <img src="{{ session.user.picture }}" class="card-img-top" alt="{{ session.user.name }}">
+                    <img src="{{ BASE_PATH }}/{{ session.user.picture }}" class="card-img-top" alt="{{ session.user.name }}">
                     <div class="card-body">
                         <h5 class="card-title">Photo de Profil</h5>
                         <label for="avatar"></label>
@@ -26,16 +26,13 @@
 
             <!-- Modify Background Card -->
             <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
-                <form method="post" enctype="multipart/form-data">
-                    <img src="{{ BASE_PATH }}/View/images/default_background.png" class="card-img-top" id="change-bg-profil" alt="Default Background">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <img src="{{ BASE_PATH }}/View/images/default_background.png" class="card-img-top" id="change-bg-profil" alt="Profil Background Image">
                     <div class="card-body">
                         <h5 class="card-title">Image de Couverture</h5>
                         <label for="background"></label>
                         <input type="file" name="background" id="background">
                         <input type="button" name="submitBackground" id="submitBackground" value="Changer"> <!-- Quand le code sera OK - changer button en submit -->
-                        <div class="preview-img">
-
-                        </div>
                     </div>
                 </form>
             </div>

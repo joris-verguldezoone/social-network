@@ -5,6 +5,7 @@ namespace App\Controller;
 // use App\Model\ConnectionModel;
 require('Controller.php');
 
+use App\Model\ModifyProfilModel;
 use Google\Client;
 use Model\ConnectionModel;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -49,17 +50,20 @@ class GoogleController extends Controller
             echo 'invalid token id';
         }
 
-        $_SESSION['user'] = $payload;
         // $this->twig->addGlobal('user_info', $payload);
         $model = new \App\Model\ConnectionModel;
+        $fetchInfoUser = new ModifyProfilModel();
 
         $alreadyExist = $model->alreadyExist('user_log', 'id_google', $payload['sub']);
-        if (!$alreadyExist) {
-
+        if (!$alreadyExist)
+        {
+            $_SESSION['user'] = $payload;
             $model->registerGoogleUser($payload['sub'], $payload['name'], $payload['picture']);
+        } else {
+            $allInfo = $fetchInfoUser -> getAllInfoUser($payload['sub']);
+            $_SESSION['user']['picture'] = $allInfo['image'];
+            var_dump($_SESSION);
         }
-
-        var_dump($payload);
 
         return $response;
     }

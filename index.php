@@ -13,8 +13,7 @@ use Google\Client;
 
 session_start();
 
-
-var_dump($_SESSION);
+var_dump($_SESSION['user']);
 
 spl_autoload_register(function ($className) {
     $className = str_replace('App', 'src', $className);

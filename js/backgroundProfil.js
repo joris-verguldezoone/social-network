@@ -5,7 +5,7 @@ $(document).ready(function ()
         const fd = new FormData();
         const files = $('#background')[0].files[0];
         fd.append('file', files);
-
+        console.log(files);
         $.ajax({
            url: 'upload_file',
            type: 'post',
@@ -16,7 +16,6 @@ $(document).ready(function ()
            {
                if (response !== 0) {
                    $('#change-bg-profil').attr('src', response);
-                   $('.preview-img').show();
                } else {
                    alert('File not uploaded !');
                }
