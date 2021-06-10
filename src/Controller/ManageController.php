@@ -60,10 +60,20 @@ class ManageController extends Controller
     }
     public function who_am_i(Request $request, Response $response, $args)
     {
-        $iAm = $_SESSION['user']['sub'];
-        $iAm = json_encode($iAm);
-        $response->getBody()->write($iAm);
-        return $response;
+        if (isset($_SESSION['user'])){
+            $iAm = $_SESSION['user'];
+            $iAm = json_encode($iAm);
+            $response->getBody()->write($iAm);
+            return $response;
+        }
+        else
+        {
+            $iAm = "nobody";
+            $iAm = json_encode($iAm);
+            $response->getBody()->write($iAm);
+            return $response;
+        }
+
     }
     public function changeBackgroundProfil(Request $request, Response $response, $args)
     {

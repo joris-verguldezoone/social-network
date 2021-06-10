@@ -1,4 +1,4 @@
-<header>
+
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary py-3">
         <div class="container-fluid">
             <div class="brand">
@@ -12,7 +12,7 @@
                 <ul class="navbar-nav">
 
                     <!--- A faire disparaitre si pas de session --->
-                    <li class="nav-item"><img class="img-thumbnail user-pic img-fluid" src="{{ session.user.picture }}" alt="profil picture"></li>
+                    <li class="nav-item"><a class="nav-link"><img class="img-thumbnail user-pic img-fluid" src="{{ session.user.picture }}" alt="profil picture"></a></li>
 
                     <li class="nav-item"><a class="nav-link" href="{{ BASE_PATH }}/"><i class="fas fa-home home-link"></i></a></li>
                     <li class="nav-item"><a class="nav-link profil-link" href="{{ BASE_PATH }}/profil"><i class="profil-link fas fa-user-circle"></i></a></li>
@@ -31,5 +31,5 @@
             </div>
         </div>
     </nav>
-</header>
+
 
