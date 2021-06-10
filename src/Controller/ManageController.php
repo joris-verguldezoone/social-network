@@ -68,10 +68,11 @@ class ManageController extends Controller
     public function changeBackgroundProfil(Request $request, Response $response, $args)
     {
         $backgroundPicture = new ModifyProfilController();
-        $backgroundPicture->newBackgroundPicture();
+        $value = $backgroundPicture->newBackgroundPicture();
 
+        $value = json_encode($value);
         $this->preloadTwig();
-        $response->getBody();
+        $response->getBody()->write($value);
         return $response;
     }
 }

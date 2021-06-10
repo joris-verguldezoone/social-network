@@ -41,25 +41,29 @@ class ModifyProfilController extends Controller
 
     public function newBackgroundPicture()
     {
+
         $filename = $_FILES['file']['name'];
-        $location = 'upload/' . $filename;
+        $location = 'uploadBg/' . $filename;
         $uploadOk = 1;
 
         $imageFileType = pathinfo($location, PATHINFO_EXTENSION);
-        $validExt = array('jpeg', 'jpg', 'png', 'svg', 'gif');
+        $validExt = array('jpeg', 'jpg', 'png', 'svg');
 
-        if (!in_array(strtolower($imageFileType), $validExt))
+        if (in_array(strtolower($imageFileType), $validExt))
         {
-            $uploadOk = 0;
+        $uploadOk = 1;
         }
 
-        if ($uploadOk == 0){
-
+        if ($uploadOk == 0)
+        {
             echo (0);
         } else {
             if (move_uploaded_file($_FILES['file']['tmp_name'], $location))
             {
-                echo ($location);
+                $model = new \App\Model\ModifyProfilModel;
+                $id_google = $_SESSION['user']['sub'];
+                $model->insertBackgroundProfil($location, $id_google);
+                return $location;
             } else {
                 echo (0);
             }

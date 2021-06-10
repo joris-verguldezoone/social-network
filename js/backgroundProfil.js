@@ -8,15 +8,18 @@ $(document).ready(function () {
             url: 'upload_file',
             type: 'post',
             data: fd,
+            dataType: 'JSON',
             contentType: false,
             processData: false,
-            success: function (response) {
+        }).done( function (response) {
+                console.log(response)
                 if (response !== 0) {
                     $('#change-bg-profil').attr('src', response);
                 } else {
                     alert('File not uploaded !');
                 }
-            }
+            }).fail(function (data) {
+                console.log('mabite')
+            })
         });
     });
-});

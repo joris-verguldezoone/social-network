@@ -64,9 +64,11 @@ class GoogleController extends Controller
             $payload['picture'] = BASE_PATH . '/' . $payload['picture'];
             $allInfo = $fetchInfoUser->getAllInfoUser($payload['sub']);
             $payload['picture'] = $allInfo['image'];
+            $payload['background'] = $allInfo['image_background'];
             $_SESSION['user'] = $payload;
             $id = $_SESSION['user']['sub'];
 
+var_dump($allInfo);
             $model->updateOneValue('user_log', 'connection', 'id_google', 1, $id);
         }
 

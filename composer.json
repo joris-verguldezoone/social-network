@@ -12,6 +12,7 @@
         "twig/twig": "^3.3",
         "slim/twig-view": "^3.2",
         "google/apiclient": "^2.9",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ext-json": "*"
     }
 }
