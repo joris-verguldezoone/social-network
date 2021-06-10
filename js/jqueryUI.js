@@ -111,7 +111,7 @@ function fetchGroupConversation() {
                 type: 'POST',
                 data: { hidden_group_id: hidden_group_id }
             }).done(function (data) {
-
+                // var conversation = refreshMsg(hidden)
                 $.ajax({
                     url: "who_am_i",
                     dataType: 'json',
@@ -146,8 +146,8 @@ function fetchGroupConversation() {
 
                         i++;
                     })
+                    $(".chat-display").scrollTop($(".chat-display")[0].scrollHeight);
                 });
-                $(".chat-display").scrollTop($(".chat-display")[0].scrollHeight);
 
             });
 
@@ -177,7 +177,14 @@ function fetchGroupConversation() {
     })
 
 }
-
-
-
-
+// function refreshMsg(hidden_group_id) {
+//     $.ajax({
+//         url: 'fetch_conversation',
+//         dataType: 'json',
+//         type: 'POST',
+//         data: { hidden_group_id: hidden_group_id }
+//     }).done(function (data) {
+//         refreshConversation = setTimeout("horlogeTempsReel()", 2000);
+//         return data;
+//     })
+// }

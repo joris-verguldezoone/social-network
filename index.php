@@ -27,7 +27,7 @@ define('BASE_PATH', rtrim(dirname($_SERVER["SCRIPT_NAME"]), '/'));
 define('HTTP_HOST', $_SERVER["HTTP_HOST"]);
 $app->setBasePath(BASE_PATH);
 
-var_dump(BASE_PATH);
+// var_dump(BASE_PATH);
 // var_dump(__DIR__);
 
 $app->addRoutingMiddleware();
