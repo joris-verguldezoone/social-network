@@ -14,7 +14,7 @@
             <!-- Modify Profil Card -->
             <div class="card text-dark bg-light mb-3" style="max-width: 20rem;">
                 <form action="" method="post" enctype="multipart/form-data">
-                    <img src="{{ BASE_PATH }}/{{ session.user.picture }}" class="card-img-top" alt="{{ session.user.name }}">
+                    <img src="{{ session.user.picture }}" class="card-img-top" alt="{{ session.user.name }}">
                     <div class="card-body">
                         <h5 class="card-title">Photo de Profil</h5>
                         <label for="avatar"></label>
@@ -32,7 +32,7 @@
                         <h5 class="card-title">Image de Couverture</h5>
                         <label for="background"></label>
                         <input type="file" name="background" id="background">
-                        <input type="button" name="submitBackground" id="submitBackground" value="Changer"> <!-- Quand le code sera OK - changer button en submit -->
+                        <input type="button" name="submitBackground" id="submitBackground" value="Changer">
                     </div>
                 </form>
             </div>
