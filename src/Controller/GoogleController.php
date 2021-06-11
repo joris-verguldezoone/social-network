@@ -68,7 +68,6 @@ class GoogleController extends Controller
             $_SESSION['user'] = $payload;
             $id = $_SESSION['user']['sub'];
 
-var_dump($allInfo);
             $model->updateOneValue('user_log', 'connection', 'id_google', 1, $id);
         }
 

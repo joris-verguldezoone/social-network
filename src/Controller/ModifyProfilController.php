@@ -43,7 +43,7 @@ class ModifyProfilController extends Controller
     {
 
         $filename = $_FILES['file']['name'];
-        $location = 'uploadBg/' . $filename;
+        $location = 'uploadBg/' . $_SESSION['user']['family_name'] . '_' .  $filename;
         $uploadOk = 1;
 
         $imageFileType = pathinfo($location, PATHINFO_EXTENSION);
@@ -60,8 +60,10 @@ class ModifyProfilController extends Controller
         } else {
             if (move_uploaded_file($_FILES['file']['tmp_name'], $location))
             {
-                $model = new \App\Model\ModifyProfilModel;
+                $_SESSION['user']['background'] = $location;
                 $id_google = $_SESSION['user']['sub'];
+
+                $model = new \App\Model\ModifyProfilModel;
                 $model->insertBackgroundProfil($location, $id_google);
                 return $location;
             } else {
