@@ -19,6 +19,7 @@ class ManageController extends Controller
      */
     public function home(Request $request, Response $response, $args)
     {
+        // Appel de la class Controller qui gère l'ajout de post
         $this->preloadTwig();
         $response->getBody()->write($this->twig->render('home.twig'));
         return $response;
@@ -26,6 +27,7 @@ class ManageController extends Controller
 
     public function showProfil(Request $request, Response $response, $args)
     {
+        // Appel de la class Controller qui affiche comme dans home les posts
         $this->preloadTwig();
         $response->getBody()->write($this->twig->render('profil.twig'));
         return $response;
@@ -33,6 +35,7 @@ class ManageController extends Controller
 
     public function modifyProfil(Request $request, Response $response, $args)
     {
+        // Appel de la class Controller qui permet de modifier/supprimer ses posts
         $profilPicture = new ModifyProfilController();
         $profilPicture->newProfilPicture();
 
