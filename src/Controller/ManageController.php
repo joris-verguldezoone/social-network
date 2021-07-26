@@ -17,11 +17,34 @@ class ManageController extends Controller
      * @param $args
      * @return Response
      */
-    public function home(Request $request, Response $response, $args)
+    public function home(Request $request, Response $response, $args): Response
     {
-        // Appel de la class Controller qui gère l'ajout de post
+//        var_dump($_SESSION);
+        $method = $request -> getMethod();
+        if ($method == 'POST')
+        {
+            $params = (array)$request -> getParsedBody();
+            $contenu = $params['publish'];
+            $id_google = $_SESSION['user']['sub'];
+            var_dump($contenu);
+            var_dump($id_google);
+
+            if (isset($_POST['submitPublish']))
+            {
+                $newPost = new PostController();
+                $newPost -> managePost($id_google, $contenu);
+            }
+        } else {
+            $contenu = '';
+        }
+
         $this->preloadTwig();
-        $response->getBody()->write($this->twig->render('home.twig'));
+        $response->getBody()->write($this->twig->render(
+            'home.twig',
+            [
+                'HTTP_HOST' => HTTP_HOST, 'BASE_PATH' => BASE_PATH, 'method' => $method, 'contenu' => $contenu
+            ]
+        ));
         return $response;
     }
 
