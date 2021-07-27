@@ -25,17 +25,46 @@
                 </section>
             </section>
 
+            <!-- Make Posts -->
+            <section>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Bonjour, faire un post
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="post">
+                                    <label for="publish">
+                                        <textarea id="publish" name="publish"></textarea>
+                                    </label>
+                                    <input type="submit" id="submitPublish" name="submitPublish" class="btn btn-primary">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!--- Feed --->
             <section class="feed-panel">
                 <section class="post">
-                    <div>
-                        <img class="img-fluid" src="{{ BASE_PATH }}/View/images/default.png">
-                        <p> Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post Bonjour ceci est un post</p>
-                    </div>
-                    <div class="like-comment">
-                        <p><span><i class="far fa-thumbs-up"></i></span> | J'aime</p>
-                        <p><span><i class="far fa-comment-dots"></i></span> | Commenter</p>
-                    </div>
+                        {% for post in allPosts %}
+                            <div>
+{#                                <img class="img-fluid" src="{{ session.user.picture }}" width="100" height="100">#}
+                                <p>{{ post['contenu'] }}</p>
+                            </div>
+{#                            <div class="like-comment">#}
+{#                                <p><span><i class="far fa-thumbs-up"></i></span> | J'aime</p>#}
+{#                                <p><span><i class="far fa-comment-dots"></i></span> | Commenter</p>#}
+{#                            </div>#}
+                        {% endfor %}
                 </section>
             </section>
 

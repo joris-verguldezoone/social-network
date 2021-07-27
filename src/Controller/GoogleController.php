@@ -55,15 +55,16 @@ class GoogleController extends Controller
         $fetchInfoUser = new ModifyProfilModel();
 
         $alreadyExist = $model->alreadyExist('user_log', 'id_google', $payload['sub']);
-        if (!$alreadyExist) {
-
+        if (!$alreadyExist)
+        {
             $model->registerGoogleUser($payload['sub'], $payload['name'], $payload['picture'], 1);
-        } else {
+        }
+        else
+        {
+            $payload['picture'] = BASE_PATH . '/' . $payload['picture'];
             $allInfo = $fetchInfoUser->getAllInfoUser($payload['sub']);
-            // $_SESSION['user']['picture'] = $allInfo['image'];
-            // var_dump($_SESSION);
             $payload['picture'] = $allInfo['image'];
-            // var_dump($allInfo['image']);
+            $payload['background'] = $allInfo['image_background'];
             $_SESSION['user'] = $payload;
             $id = $_SESSION['user']['sub'];
 

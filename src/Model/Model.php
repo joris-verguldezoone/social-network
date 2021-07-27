@@ -45,10 +45,9 @@ abstract class Model
         $query = $this->pdo->prepare('SELECT * FROM ' . $table . ' WHERE ' . $column . ' = ?');
         $query->execute([$value]);
 
-        $result = $query->fetch(\PDO::FETCH_ASSOC);
-
-        return $result;
+        return $query->fetch(\PDO::FETCH_ASSOC);
     }
+
     public function countOneValue($id, $value, $col)
     {
         $sql = "SELECT $value WHERE $col = ?";

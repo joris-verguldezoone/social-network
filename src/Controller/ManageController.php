@@ -17,22 +17,57 @@ class ManageController extends Controller
      * @param $args
      * @return Response
      */
-    public function home(Request $request, Response $response, $args)
+    public function home(Request $request, Response $response, $args): Response
     {
+        $postController = new PostController();
+        $allPosts = $postController -> allPosts();
+
+        $method = $request -> getMethod();
+        if ($method == 'POST')
+        {
+            $params = (array)$request -> getParsedBody();
+            $contenu = $params['publish'];
+            $id_google = $_SESSION['user']['sub'];
+
+            if (isset($_POST['submitPublish']))
+            {
+                $newPost = new PostController();
+                $newPost -> managePost($id_google, $contenu);
+            }
+        } else {
+            $contenu = '';
+        }
+
         $this->preloadTwig();
-        $response->getBody()->write($this->twig->render('home.twig'));
+        $response->getBody()->write($this->twig->render(
+            'home.twig',
+            [
+                'HTTP_HOST' => HTTP_HOST, 'BASE_PATH' => BASE_PATH, 'method' => $method,
+                'contenu' => $contenu, 'allPosts' => $allPosts
+            ]
+        ));
         return $response;
     }
 
     public function showProfil(Request $request, Response $response, $args)
     {
+        $postsProfil = new PostController();
+        $id_google = $_SESSION['user']['sub'];
+        $allPostUser = $postsProfil -> allPostsInProfil($id_google);
+
         $this->preloadTwig();
-        $response->getBody()->write($this->twig->render('profil.twig'));
+        $response->getBody()->write($this->twig->render(
+            'profil.twig',
+            [
+                'HTTP_HOST' => HTTP_HOST, 'BASE_PATH' => BASE_PATH, 'allPostUser' => $allPostUser
+            ]
+        ));
         return $response;
     }
 
     public function modifyProfil(Request $request, Response $response, $args)
     {
+        // Appel de la class Controller qui permet de modifier/supprimer ses posts
         $profilPicture = new ModifyProfilController();
         $profilPicture->newProfilPicture();
 
@@ -68,10 +103,11 @@ class ManageController extends Controller
     public function changeBackgroundProfil(Request $request, Response $response, $args)
     {
         $backgroundPicture = new ModifyProfilController();
-        $backgroundPicture->newBackgroundPicture();
+        $value = $backgroundPicture->newBackgroundPicture();
 
+        $value = json_encode($value);
         $this->preloadTwig();
-        $response->getBody();
+        $response->getBody()->write($value);
         return $response;
     }
 }

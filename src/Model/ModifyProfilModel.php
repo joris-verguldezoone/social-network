@@ -22,11 +22,12 @@ class ModifyProfilModel extends Model
         ]);
     }
 
-    public function insertBackgroundProfil($background_profil)
+    public function insertBackgroundProfil($background_profil, $id_google)
     {
-        $query = $this -> pdo -> prepare('UPDATE user_log SET image_background = :img_bg');
-        $query -> bindValue(':img_bg', $background_profil);
-
-        $query -> execute();
+        $query = $this -> pdo -> prepare('UPDATE user_log SET image_background = :img WHERE id_google = :id_google');
+        $query -> execute([
+            'img' => $background_profil,
+            'id_google' => $id_google
+        ]);
     }
 }
