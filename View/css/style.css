@@ -126,4 +126,38 @@ footer .footer-part a:hover h5 {
   position: absolute ;
   z-index: 1;
 }
-  
+/* POST JORIS CSS */
+
+.post{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.unique_post{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 20vh;
+  width:30vw;
+}
+.top_post{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.image_post{
+  height:100px;
+  width:100px;
+  border-radius: 4em;
+}
+.content{
+  /* mettre une police */
+}
+.bottom_content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: lighter;
+}
