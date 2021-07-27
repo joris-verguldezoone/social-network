@@ -84,7 +84,7 @@ class ChatController extends Controller
 
         if ($isConnected == 0) {
             $result = $model->sendMsg($group_id, $id_google, $content);
-            $model->insertNotif($id_google, $group_id, $name_group, 'message');
+            $model->insertNotif($id_google, $group_id, $name_group, 1);
         } else {
 
             $result = $model->sendMsg($group_id, $id_google, $content);

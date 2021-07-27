@@ -116,13 +116,13 @@ abstract class Model
     }
     public function insertNotif($id_google, $id_group, $name, $type)
     {
-        $sql = "INSERT INTO notification (id_google, id_group, name, type) VALUES (:id_google, :id_group, :name, :type)";
+        $sql = "INSERT INTO notification (id_google, id_group, name, id_type) VALUES (:id_google, :id_group, :name, :type)";
         $result = $this->pdo->prepare($sql);
 
         $result->bindValue(":id_google", $id_google, \PDO::PARAM_STR);
         $result->bindValue(":id_group", $id_group, \PDO::PARAM_STR);
         $result->bindValue(":name", $name, \PDO::PARAM_STR);
-        $result->bindValue(":type", $type, \PDO::PARAM_STR);
+        $result->bindValue(":type", $type, \PDO::PARAM_INT);
 
         $result->execute();
     }

@@ -112,3 +112,18 @@ footer .footer-part a:hover h5 {
 }
 
 /*# sourceMappingURL=style.css.map */
+/* Joris notif display*/
+#displayNotif{
+  background-color:white;
+  /* min-height:10vh; */
+  /* height:0; */
+  width: 10vw;
+  margin-top: 40px;
+  /* padding:10px; */
+  border-bottom-right-radius:  0.5em;
+  border-bottom-left-radius:  0.5em;
+  box-shadow: 1px 1px 1px grey;
+  position: absolute ;
+  z-index: 1;
+}
+  

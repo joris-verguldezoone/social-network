@@ -126,6 +126,7 @@ function showConversation(target) {
 
         }).done(function (datum) {
             console.log(datum)
+
             var currentUser = datum
             console.log(data)
             console.log(data[1])
@@ -154,6 +155,7 @@ function showConversation(target) {
                 i++;
             })
             $(".chat-display").scrollTop($(".chat-display")[0].scrollHeight);
+
         });
 
 
