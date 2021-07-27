@@ -54,7 +54,7 @@ class ChatController extends Controller
         $this->preloadTwig();
         // $result1 = json_encode($result1);
 
-        $result2 = $model->fetchOneValueCol('group_message', 'id_group', $group_id);
+        $result2 = $model->fetchConv($group_id);
 
         // $result2 = json_encode($result2);
 
@@ -90,7 +90,6 @@ class ChatController extends Controller
             $result = $model->sendMsg($group_id, $id_google, $content);
         }
 
-        $result = $model->sendMsg($group_id, $id_google, $content);
         $response->getBody(); // write json encodé
 
         return $response->withHeader('Content-Type', 'application/json');

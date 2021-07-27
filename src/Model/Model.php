@@ -103,21 +103,14 @@ abstract class Model
         $query->bindValue(':value2', $value2);
 
         $query->execute();
-        var_dump($value1);
-        var_dump($value2);
-        var_dump($column1);
-        var_dump($column2);
-        var_dump($query);
     }
     public function fetchOneValueCol($table, $col, $value)
     {
-        $sql = "SELECT * FROM $table WHERE $col = :value ";
+        $sql = "SELECT * FROM $table WHERE $col = :value";
         $result = $this->pdo->prepare($sql);
         $result->bindValue(':value', $value, \PDO::PARAM_STR);
         $result->execute();
         $fetch = $result->fetchAll(\PDO::FETCH_ASSOC);
-
-
 
         return $fetch;
     }
@@ -130,10 +123,7 @@ abstract class Model
         $result->bindValue(":id_group", $id_group, \PDO::PARAM_STR);
         $result->bindValue(":name", $name, \PDO::PARAM_STR);
         $result->bindValue(":type", $type, \PDO::PARAM_STR);
-        var_dump($id_google);
-        var_dump($id_group);
-        var_dump($name);
-        var_dump($type);
+
         $result->execute();
     }
 }

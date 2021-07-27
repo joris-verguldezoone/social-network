@@ -105,4 +105,14 @@ class ChatModel extends Model
 
         $result->execute();
     }
+    public function fetchConv($value)
+    {
+        $sql =  "SELECT * from group_message WHERE id_group = :value ORDER BY date ASC";
+        $result = $this->pdo->prepare($sql);
+        $result->bindValue(':value', $value, \PDO::PARAM_STR);
+        $result->execute();
+        $fetch = $result->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $fetch;
+    }
 }

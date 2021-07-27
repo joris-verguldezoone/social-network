@@ -65,7 +65,7 @@ footer {
   background-color: #a8d8ca;
   margin-left: 1%;
 }
-header{display: none;}
+/* header{display: none;} */
 .chat-members {
   margin: 1%;
   grid-column-start: 1;
