@@ -38,4 +38,10 @@ class PostController extends Controller
 
         echo $errorLog;
     }
+
+    public function allPosts(): array
+    {
+        $posts = new PostModel();
+        return $posts -> getAllPosts('posts');
+    }
 }

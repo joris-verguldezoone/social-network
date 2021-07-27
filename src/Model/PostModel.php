@@ -17,4 +17,12 @@ class PostModel extends Model
 
         $query -> execute();
     }
+
+    public function getAllPosts($table): array
+    {
+        $query = $this -> pdo -> prepare("SELECT * FROM $table");
+        $query -> execute();
+
+        return $query -> fetchAll();
+    }
 }

@@ -19,15 +19,15 @@ class ManageController extends Controller
      */
     public function home(Request $request, Response $response, $args): Response
     {
-//        var_dump($_SESSION);
+        $postController = new PostController();
+        $allPosts = $postController -> allPosts();
+
         $method = $request -> getMethod();
         if ($method == 'POST')
         {
             $params = (array)$request -> getParsedBody();
             $contenu = $params['publish'];
             $id_google = $_SESSION['user']['sub'];
-            var_dump($contenu);
-            var_dump($id_google);
 
             if (isset($_POST['submitPublish']))
             {
@@ -42,7 +42,8 @@ class ManageController extends Controller
         $response->getBody()->write($this->twig->render(
             'home.twig',
             [
-                'HTTP_HOST' => HTTP_HOST, 'BASE_PATH' => BASE_PATH, 'method' => $method, 'contenu' => $contenu
+                'HTTP_HOST' => HTTP_HOST, 'BASE_PATH' => BASE_PATH, 'method' => $method,
+                'contenu' => $contenu, 'allPosts' => $allPosts
             ]
         ));
         return $response;

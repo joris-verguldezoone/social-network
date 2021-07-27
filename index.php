@@ -11,7 +11,6 @@ use App\Controller\ChatController;
 use App\Controller\ModifyProfilController;
 use App\Controller\Controller;
 
-
 spl_autoload_register(function ($className) {
     $className = str_replace('App', 'src', $className);
     $filePath =  str_replace('\\', '/', $className) . '.php';
@@ -21,8 +20,6 @@ spl_autoload_register(function ($className) {
 });
 
 session_start();
-
-
 
 $app = AppFactory::create();
 
