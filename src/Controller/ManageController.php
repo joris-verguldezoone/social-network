@@ -51,9 +51,17 @@ class ManageController extends Controller
 
     public function showProfil(Request $request, Response $response, $args)
     {
-        // Appel de la class Controller qui affiche comme dans home les posts
+        $postsProfil = new PostController();
+        $id_google = $_SESSION['user']['sub'];
+        $allPostUser = $postsProfil -> allPostsInProfil($id_google);
+
         $this->preloadTwig();
-        $response->getBody()->write($this->twig->render('profil.twig'));
+        $response->getBody()->write($this->twig->render(
+            'profil.twig',
+            [
+                'HTTP_HOST' => HTTP_HOST, 'BASE_PATH' => BASE_PATH, 'allPostUser' => $allPostUser
+            ]
+        ));
         return $response;
     }
 

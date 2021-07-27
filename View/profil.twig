@@ -12,6 +12,16 @@
             <img src="{{ session.user.picture }}" alt="{{ session.user.name }}">
             <h1>{{ session.user.name }}<a href="{{ BASE_PATH }}/modifyProfil" class="btn btn-light"><i class="fas fa-cog"></i></a></h1>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>
+            {% for post in allPostUser %}
+                <img src="{{ session.user.picture }}" alt="photo de {{ session.user.name }}" width="50" height="50">
+                <p>{{ post['contenu'] }}</p>
+            {% endfor %}
+        </div>
     </section>
     
 {% endblock %}

@@ -44,4 +44,10 @@ class PostController extends Controller
         $posts = new PostModel();
         return $posts -> getAllPosts('posts');
     }
+
+    public function allPostsInProfil($id_google): array
+    {
+        $posts = new PostModel();
+        return $posts -> selectAllPosts('posts', 'id_google', $id_google);
+    }
 }

@@ -25,4 +25,12 @@ class PostModel extends Model
 
         return $query -> fetchAll();
     }
+
+    public function selectAllPosts($table, $column, $value): array
+    {
+        $query = $this->pdo->prepare('SELECT * FROM ' . $table . ' WHERE ' . $column . ' = ?');
+        $query->execute([$value]);
+
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
