@@ -6,7 +6,7 @@ body {
   max-height: 60vh;
   display: grid;
   grid-template-columns: 14vw 70vw 14vw;
-  margin-top: 8%;
+  margin-top: 4%;
 }
 
 .groupe-panel {
@@ -48,7 +48,6 @@ body {
   max-height: 60vh;
   grid-column-start: 2;
   grid-column-end: 3;
-  overflow: auto;
   justify-self: center;
 }
 
@@ -59,7 +58,8 @@ body {
   width: 60vw;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1%;
+  overflow: scroll;
+  max-height: 60vh;
 }
 .post img {
   margin: 1.5%;
