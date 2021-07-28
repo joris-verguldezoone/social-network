@@ -36,22 +36,10 @@ class PostController extends Controller
         echo $errorLog;
     }
 
-    public function allPosts()
+    public function allPosts(): array
     {
         $posts = new PostModel();
-        $result = $posts->getAllPosts();
-        $str = "";
-        foreach ($result as $value) {
-            $str = $str . "<div class='unique_post'>
-                        <div class='top_post'><img class='image_post' src='" . $value['image'] . "' alt='Image utilisateur'><p class='pseudo_user'>" . $value['login'] . "</p></div>
-                        <div class='mid_post'><p class='content'>" . $value['contenu'] . "</p></div>
-                        <div class='bot_post'><p class='bottom_content'>" . strval($value['nb_like']) . "like</p> 
-                        <p class='bottom_content'>" . strval($value['nb_comment']) . "</p>
-                        <p class='bottom_content'>" . strval($value['date']) . "</p></div>
-                        </div>";
-        }
-
-        echo $str;
+        return $posts -> getAllPosts();
     }
 
     public function allPostsInProfil($id_google): array
