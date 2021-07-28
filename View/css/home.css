@@ -48,7 +48,6 @@ body {
   max-height: 60vh;
   grid-column-start: 2;
   grid-column-end: 3;
-  overflow: auto;
   justify-self: center;
 }
 
@@ -60,6 +59,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 1%;
+  overflow: scroll;
 }
 .post img {
   margin: 1.5%;
