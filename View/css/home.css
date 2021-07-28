@@ -58,7 +58,8 @@ body {
   width: 60vw;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow: auto;
+  justify-content: normal;
   max-height: 60vh;
 }
 .post img {
