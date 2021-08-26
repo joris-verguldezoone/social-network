@@ -57,6 +57,13 @@ html {
 .discussion-link:hover {
   color: #ff7851;
 }
+.connection-link {
+  transition: 0.2s;
+}
+
+.connection-link:hover {
+  color: #ff7851;
+}
 
 .profil-link {
   transition: 0.2s;
@@ -114,20 +121,16 @@ footer .footer-part a:hover h5 {
 
 /*# sourceMappingURL=style.css.map */
 /* Joris notif display*/
-#displayNotif{
+/* #displayNotif{
   background-color:red;
   min-height:40vh;
-  /* height:0; */
   width: 10vw;
-  /* display: none; */
-  /* margin-top: 40px; */
-  /* padding:10px; */
   border-bottom-right-radius:  0.5em;
   border-bottom-left-radius:  0.5em;
   box-shadow: 1px 1px 1px grey;
   position: absolute ;
   z-index: 1;
-}
+} */
 /* POST JORIS CSS */
 
 .post{
@@ -154,9 +157,9 @@ footer .footer-part a:hover h5 {
   width:100px;
   border-radius: 4em;
 }
-.content{
+/* .content{
   /* mettre une police */
-}
+
 .bottom_content{
   display: flex;
   flex-direction: row;

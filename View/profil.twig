@@ -20,6 +20,7 @@
             {% for post in allPostUser %}
                 <img src="{{ session.user.picture }}" alt="photo de {{ session.user.name }}" width="50" height="50">
                 <p>{{ post['contenu'] }}</p>
+                <p>{{ post['date'] }}</p>
             {% endfor %}
         </div>
     </section>

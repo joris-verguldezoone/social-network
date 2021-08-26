@@ -18,8 +18,8 @@ spl_autoload_register(function ($className) {
         require($filePath);
     }
 });
-
 session_start();
+
 
 $app = AppFactory::create();
 
@@ -31,7 +31,7 @@ $app->addRoutingMiddleware();
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
-$app->map(['GET', 'POST'],'/', ManageController::class . ':home');
+$app->map(['GET', 'POST'], '/', ManageController::class . ':home');
 
 $app->map(['GET', 'POST'], '/profil', ManageController::class . ':showProfil');
 
